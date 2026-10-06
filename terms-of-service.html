@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Service | Team Allied Health</title>
+    <meta
+      name="description"
+      content="The terms that apply to using the Team Allied Health website and receiving our allied health services."
+    />
+    <link rel="icon" href="assets/logo.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ponytail: Tailwind Play CDN (no build step). Swap for the Tailwind CLI build before production. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Lato", "sans-serif"] } } },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        font-family: "Lato", sans-serif;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+      }
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-open .faq-chevron {
+        transform: rotate(180deg);
+      }
+      .faq-chevron {
+        transition: transform 0.35s ease;
+      }
+      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
+      .legal p + p { margin-top: 14px; }
+      .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
+      .legal a { color: #006781; font-weight: 700; }
+      .legal a:hover { text-decoration: underline; }
+      .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
+    </style>
+  </head>
+  <body class="font-sans text-[#0f172a] bg-white antialiased">
+    <!-- ===================== HEADER ===================== -->
+    <header
+      class="relative z-20 border border-[#e6e0e0] shadow-[8px_-8px_25px_0_rgba(0,0,0,0.04)]"
+    >
+      <div class="bg-[#004719] py-[4.5px]">
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] flex items-center justify-between text-white text-[13.5px] font-bold tracking-[0.54px] leading-[18px]"
+        >
+          <div class="flex items-center gap-3 lg:gap-[27px]">
+            <a
+              href="mailto:info@teamalliedhealth.com.au"
+              class="flex items-center gap-[4.5px] hover:opacity-80"
+            >
+              <img
+                src="assets/icon-mail.svg"
+                width="13.125"
+                height="10.5"
+                alt=""
+              />
+              <span>info@teamalliedhealth.com.au</span>
+            </a>
+            <span class="opacity-30 hidden sm:inline">|</span>
+            <a
+              href="tel:1300000824"
+              class="hidden sm:flex items-center gap-[4.5px] hover:opacity-80"
+            >
+              <img
+                src="assets/icon-phone.svg"
+                width="11.8125"
+                height="11.8125"
+                alt=""
+              />
+              <span>1300 000 TAH</span>
+            </a>
+          </div>
+          <span
+            class="bg-[#006781] rounded-full px-[9px] py-[2.25px] text-[12.375px] leading-[15.75px] tracking-[0.6188px]"
+            >AHPRA Verified</span
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/95 backdrop-blur-[13.5px] h-[90px]">
+        <div
+          class="max-w-[1440px] h-full mx-auto px-4 lg:px-[54px] flex items-center justify-between gap-4"
+        >
+          <a href="index.html" aria-label="Team Allied Health home"
+            ><img
+              src="assets/logo.webp"
+              width="95"
+              height="95"
+              alt="Team Allied Health logo"
+              class="size-[70px] lg:size-[95px] object-cover"
+          /></a>
+
+          <nav
+            class="hidden xl:flex items-center gap-[28px] text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold text-[#40493f]"
+            aria-label="Main"
+          >
+            <a
+              href="index.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Home</a
+            >
+            <a
+              href="index.html#services"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Services</a
+            >
+            <a
+              href="index.html#who-we-help"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >How We Work</a
+            >
+            <a
+              href="index.html#coverage"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Greater Melbourne &amp; Telehealth</a
+            >
+            <a
+              href="index.html#about"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >About Us</a
+            >
+            <a
+              href="index.html#faqs"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >FAQs</a
+            >
+            <a
+              href="index.html#contact"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Contact Us</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="index.html#referral"
+              class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-5 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
+              >Make an Online<br />Referral</a
+            >
+            <!-- Mobile menu (native details, no JS) -->
+            <details class="xl:hidden relative">
+              <summary
+                class="cursor-pointer p-2 rounded-[9px] hover:bg-[#e7eeff]"
+                aria-label="Open menu"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#004719"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+              </summary>
+              <nav
+                class="absolute right-0 mt-2 w-64 bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col text-[15.75px] font-bold text-[#40493f]"
+                aria-label="Mobile"
+              >
+                <a
+                  href="index.html"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >Home</a
+                >
+                <a
+                  href="index.html#services"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >Services</a
+                >
+                <a
+                  href="index.html#who-we-help"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >How We Work</a
+                >
+                <a
+                  href="index.html#coverage"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >Greater Melbourne &amp; Telehealth</a
+                >
+                <a
+                  href="index.html#about"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >About Us</a
+                >
+                <a
+                  href="index.html#faqs"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >FAQs</a
+                >
+                <a
+                  href="index.html#contact"
+                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  >Contact Us</a
+                >
+              </nav>
+            </details>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-[64px] lg:py-[80px]" style="background-image: linear-gradient(140.32deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
+        <div class="max-w-[1008px] mx-auto px-4 lg:px-[54px]">
+          <nav aria-label="Breadcrumb" class="text-[14px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Terms of Service</span></nav>
+          <span class="mt-5 inline-flex items-center gap-[6.75px] bg-[#d1fae5] rounded-full px-[13.5px] py-[4.5px] font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#064e3b]">🛡️ Legal</span>
+          <h1 class="mt-3 font-black text-[34px] leading-[40px] lg:text-[48px] lg:leading-[54px] tracking-[-1.2px] text-[#1a602b]">Terms of Service</h1>
+          <p class="mt-3 text-[16px] font-bold text-[#475569]">Last updated: [Effective Date]</p>
+        </div>
+      </section>
+
+      <div class="bg-[#f0f3ff] py-[48px] lg:py-[72px]">
+        <article class="legal max-w-[1008px] mx-auto px-4 lg:px-[54px]">
+          <div class="bg-white border-[1.125px] border-[#d1fae5] rounded-[31.5px] p-6 lg:p-[48px] shadow-[0_22.5px_28.125px_-5.625px_rgba(0,0,0,0.06)]">
+            <p>These Terms of Service (“Terms”) apply to your use of the Team Allied Health website and to allied health services provided by Team Allied Health Australia Pty Ltd (ABN [ABN]) (“Team Allied Health”, “we”, “us”, “our”). By using our website, submitting a referral or booking a service, you agree to these Terms. Nothing in these Terms excludes any rights you have under the Australian Consumer Law.</p>
+            <nav aria-label="Contents" class="mt-8 bg-[rgba(236,253,245,0.6)] border-[1.125px] border-[#d1fae5] rounded-[22.5px] p-6">
+              <p class="!text-[13.5px] !leading-[18px] font-bold tracking-[0.675px] uppercase !text-[#065f46]">On this page</p>
+              <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-[15.75px] font-bold text-[#334155]"><li><a href="#website-use" class="hover:text-[#1a602b] hover:underline">1. Using our website</a></li>
+<li><a href="#referrals" class="hover:text-[#1a602b] hover:underline">2. Referrals and intake</a></li>
+<li><a href="#services" class="hover:text-[#1a602b] hover:underline">3. Our services</a></li>
+<li><a href="#fees" class="hover:text-[#1a602b] hover:underline">4. Fees, funding and payment</a></li>
+<li><a href="#cancellations" class="hover:text-[#1a602b] hover:underline">5. Cancellations and missed appointments</a></li>
+<li><a href="#telehealth" class="hover:text-[#1a602b] hover:underline">6. Telehealth sessions</a></li>
+<li><a href="#safety" class="hover:text-[#1a602b] hover:underline">7. Safety and conduct</a></li>
+<li><a href="#feedback" class="hover:text-[#1a602b] hover:underline">8. Feedback and complaints</a></li>
+<li><a href="#liability" class="hover:text-[#1a602b] hover:underline">9. Liability</a></li>
+<li><a href="#privacy" class="hover:text-[#1a602b] hover:underline">10. Privacy</a></li>
+<li><a href="#changes" class="hover:text-[#1a602b] hover:underline">11. Changes and governing law</a></li>
+<li><a href="#contact" class="hover:text-[#1a602b] hover:underline">12. Contact us</a></li></ol>
+            </nav>
+            <section><h2 id="website-use" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">1. Using our website</h2>
+<p>The information on this website is general in nature and does not replace individual clinical advice. Always seek advice from a qualified health professional about your specific circumstances. <strong>In an emergency, call 000.</strong></p>
+<p>You agree not to misuse the website, including by submitting false information, attempting to gain unauthorised access, or interfering with its operation. All content, logos and images on this site belong to Team Allied Health or its licensors and may not be reproduced without permission.</p></section>
+<section><h2 id="referrals" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">2. Referrals and intake</h2>
+<p>Referrals may be made by participants, parents, carers, Support Coordinators, GPs, Plan Managers and other professionals. Submitting a referral does not guarantee a service. We aim to triage referrals within 24–48 business hours and will contact you to discuss suitability, availability, funding and next steps.</p>
+<p>If you refer someone else, you confirm that you have their (or their guardian’s) consent to share their information with us.</p></section>
+<section><h2 id="services" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">3. Our services</h2>
+<p>We provide allied health services including early intervention, speech pathology, occupational therapy, physiotherapy, psychology, behaviour support and Allied Health Assistant (AHA) support, delivered via mobile visits across Greater Melbourne and via Telehealth.</p>
+<p>Services are delivered by appropriately qualified and, where required, AHPRA-registered clinicians. AHA sessions are delivered under the supervision of a qualified clinician. Before services start we will agree a service agreement or plan with you that sets out supports, pricing and how they will be delivered.</p></section>
+<section><h2 id="fees" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">4. Fees, funding and payment</h2>
+<p>Our fees will be provided to you before services begin. For NDIS participants, fees will not exceed the price limits in the NDIS Pricing Arrangements and Price Limits current at the time of service.</p>
+<ul>
+<li><strong>NDIS plan-managed or self-managed:</strong> invoices are issued to your plan manager or to you, as agreed.</li>
+<li><strong>TAC, Medicare (EPC/CDM) and private health:</strong> eligibility and any gap payments will be explained before services start.</li>
+<li><strong>Private clients:</strong> payment is due on the terms stated on your invoice.</li>
+</ul>
+<p>Travel for mobile visits may be charged in line with the applicable funding rules and your service agreement.</p></section>
+<section><h2 id="cancellations" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">5. Cancellations and missed appointments</h2>
+<p>We understand that plans change. Please give us as much notice as possible if you need to cancel or reschedule. For NDIS participants, short-notice cancellations and no-shows may be charged in line with the NDIS Pricing Arrangements. For other clients, our cancellation fee is [Cancellation Policy — e.g. notice period and fee]. Full details will be in your service agreement.</p>
+<p>If we need to cancel or reschedule, we will let you know as early as possible and offer an alternative time.</p></section>
+<section><h2 id="telehealth" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">6. Telehealth sessions</h2>
+<p>For Telehealth sessions you are responsible for a suitable device, a stable internet connection and a private space. A parent or carer may need to be present for sessions with children. Clinicians may recommend face-to-face services if Telehealth is not clinically appropriate.</p></section>
+<section><h2 id="safety" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">7. Safety and conduct</h2>
+<p>We are committed to safe, respectful, neurodiversity-affirming care. To keep everyone safe, we ask that home visit environments are free from hazards and that pets are secured. We may pause or end a session if a clinician’s or participant’s safety is at risk. We will work with you to find a solution before ending services.</p></section>
+<section><h2 id="feedback" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">8. Feedback and complaints</h2>
+<p>We welcome feedback, compliments and complaints and will not treat you differently for raising a concern. Contact us at <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a>. If you are not satisfied with our response, NDIS participants may contact the NDIS Quality and Safeguards Commission (1800 035 544) and Victorian clients may contact the Health Complaints Commissioner (1300 582 113).</p></section>
+<section><h2 id="liability" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">9. Liability</h2>
+<p>To the extent permitted by law, we are not liable for any indirect or consequential loss arising from your use of this website or from information on it. Our services come with guarantees that cannot be excluded under the Australian Consumer Law, and nothing in these Terms limits those guarantees.</p></section>
+<section><h2 id="privacy" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">10. Privacy</h2>
+<p>We handle personal and health information in accordance with our <a href="privacy-policy.html">Privacy Policy</a>.</p></section>
+<section><h2 id="changes" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">11. Changes and governing law</h2>
+<p>We may update these Terms from time to time; the current version will always be published on this page. These Terms are governed by the laws of Victoria, Australia.</p></section>
+<section><h2 id="contact" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">12. Contact us</h2><p><strong>Team Allied Health Australia Pty Ltd</strong><br />
+Email: <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a><br />
+Phone: [Contact Number]<br />
+Postal address: [Business Address]<br />
+ABN: [ABN]</p></section>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="bg-[#112417] border-t-[1.125px] border-[#022c22] pt-[73.125px] pb-[17px]"
+    >
+      <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[36px] pb-[54px]"
+        >
+          <div class="lg:col-span-2 flex flex-col">
+            <div class="flex items-center gap-[13.5px]">
+              <img
+                src="assets/logo.webp"
+                width="43"
+                height="43"
+                alt="Team Allied Health logo"
+                class="size-[43px] object-cover"
+              />
+              <p class="font-bold text-[22.5px] leading-[31.5px] text-white">
+                Team Allied Health
+              </p>
+            </div>
+            <p
+              class="mt-[18px] max-w-[504px] text-[15.75px] leading-[25.594px] text-[rgba(209,250,229,0.8)]"
+            >
+              Compassionate, multidisciplinary clinical support empowering
+              children, youth, and families across metropolitan Melbourne and
+              nationwide through specialized Telehealth services.
+            </p>
+            <ul
+              class="mt-8 lg:mt-[70px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(167,243,208,0.9)]"
+            >
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-mail-amber.svg"
+                  width="14.4"
+                  height="10.8"
+                  alt=""
+                /><a
+                  href="mailto:info@teamalliedhealth.com.au"
+                  class="hover:text-white"
+                  >info@teamalliedhealth.com.au</a
+                >
+              </li>
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-phone-amber.svg"
+                  width="12.605"
+                  height="12.586"
+                  alt=""
+                />[Contact Number]
+              </li>
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-clock-amber.svg"
+                  width="14.4"
+                  height="14.4"
+                  alt=""
+                />Mon - Fri: 8:30 AM - 5:30 PM AEST
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              class="font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#fcd34d]"
+            >
+              CLINICAL MODALITIES
+            </p>
+            <ul
+              class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
+            >
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >🧸 Early Intervention</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >💬 Speech Therapy</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >🎨 Occupational Therapy</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >🧠 Psychology &amp; Wellbeing</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >🤝 Behaviour Support</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >🏃 Physiotherapy</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" class="hover:text-white"
+                  >⭐ Allied Health Assistants</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              class="font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#fcd34d]"
+            >
+              QUICK LINKS
+            </p>
+            <ul
+              class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
+            >
+              <li><a href="index.html" class="hover:text-white">Home</a></li>
+              <li><a href="index.html#about" class="hover:text-white">About Us</a></li>
+              <li>
+                <a href="index.html#coverage" class="hover:text-white"
+                  >Service Areas &amp; Suburbs</a
+                >
+              </li>
+              <li>
+                <a href="index.html#referral" class="hover:text-white"
+                  >For Referrers (GPs &amp; Coordinators)</a
+                >
+              </li>
+              <li>
+                <a href="index.html#referral" class="hover:text-white"
+                  >Submit Secure Referral</a
+                >
+              </li>
+              <li>
+                <a href="index.html#contact" class="hover:text-white">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-[8px] flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[13.5px] leading-[18px] text-[rgba(167,243,208,0.6)]"
+        >
+          <p>
+            © 2026 Team Allied Health Australia Pty Ltd. All rights reserved.
+          </p>
+          <nav class="flex flex-wrap gap-x-[27px] gap-y-2" aria-label="Legal">
+            <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
+            <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a>
+            <a href="index.html" class="hover:text-white">Participant Charter</a>
+            <a href="index.html" class="hover:text-white">Feedback &amp; Complaints</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

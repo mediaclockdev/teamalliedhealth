@@ -2175,8 +2175,8 @@
             © 2026 Team Allied Health Australia Pty Ltd. All rights reserved.
           </p>
           <nav class="flex flex-wrap gap-x-[27px] gap-y-2" aria-label="Legal">
-            <a href="#" class="hover:text-white">Privacy Policy</a>
-            <a href="#" class="hover:text-white">Terms of Service</a>
+            <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
+            <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a>
             <a href="#" class="hover:text-white">Participant Charter</a>
             <a href="#" class="hover:text-white">Feedback &amp; Complaints</a>
           </nav>
@@ -2194,9 +2194,11 @@
         let anim;
         d.querySelector("summary").addEventListener("click", (e) => {
           e.preventDefault();
-          const from = body.offsetHeight;
-          anim?.cancel();
           const closing = d.classList.contains("faq-open");
+          // A closed <details> can still report its full height in Chrome, so
+          // opening starts from 0 unless we're reversing a running animation.
+          const from = anim || closing ? body.offsetHeight : 0;
+          anim?.cancel();
           d.classList.toggle("faq-open", !closing);
           d.open = true;
           const to = closing ? 0 : body.scrollHeight;
