@@ -26,6 +26,23 @@
       html {
         scroll-behavior: smooth;
         font-family: "Lato", sans-serif;
+        /* keep anchor targets clear of the sticky header */
+        scroll-padding-top: 130px;
+      }
+      /* form validation: only flag fields after the user has interacted */
+      .was-validated :is(input, textarea):invalid {
+        border-color: #dc2626;
+        background-color: #fef2f2;
+      }
+      .field-error {
+        display: none;
+        color: #b91c1c;
+        font-size: 13.5px;
+        line-height: 18px;
+        font-weight: 700;
+      }
+      .was-validated :is(input, textarea):invalid ~ .field-error {
+        display: block;
       }
       body {
         font-family: "Lato", sans-serif;
@@ -50,31 +67,32 @@
       .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
     </style>
   </head>
-  <body class="font-sans text-[#0f172a] bg-white antialiased">
+  <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
     <!-- ===================== HEADER ===================== -->
     <header
-      class="relative z-20 border border-[#e6e0e0] shadow-[8px_-8px_25px_0_rgba(0,0,0,0.04)]"
+      class="sticky top-0 z-20 border border-[#e6e0e0] shadow-[8px_-8px_25px_0_rgba(0,0,0,0.04)]"
     >
       <div class="bg-[#004719] py-[4.5px]">
         <div
-          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] flex items-center justify-between text-white text-[13.5px] font-bold tracking-[0.54px] leading-[18px]"
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] flex items-center justify-between gap-3 text-white text-[12px] sm:text-[13.5px] font-bold tracking-normal sm:tracking-[0.54px] leading-[18px]"
         >
-          <div class="flex items-center gap-3 lg:gap-[27px]">
+          <div class="flex items-center gap-3 lg:gap-[27px] min-w-0">
             <a
               href="mailto:info@teamalliedhealth.com.au"
-              class="flex items-center gap-[4.5px] hover:opacity-80"
+              class="flex items-center gap-[4.5px] hover:opacity-80 min-w-0"
             >
               <img
                 src="assets/icon-mail.svg"
                 width="13.125"
                 height="10.5"
                 alt=""
+                class="shrink-0"
               />
-              <span>info@teamalliedhealth.com.au</span>
+              <span class="truncate">info@teamalliedhealth.com.au</span>
             </a>
             <span class="opacity-30 hidden sm:inline">|</span>
             <a
-              href="tel:1300000824"
+              href="tel:+61412345678"
               class="hidden sm:flex items-center gap-[4.5px] hover:opacity-80"
             >
               <img
@@ -83,11 +101,11 @@
                 height="11.8125"
                 alt=""
               />
-              <span>1300 000 TAH</span>
+              <span>+61 412 345 678</span>
             </a>
           </div>
           <span
-            class="bg-[#006781] rounded-full px-[9px] py-[2.25px] text-[12.375px] leading-[15.75px] tracking-[0.6188px]"
+            class="shrink-0 whitespace-nowrap bg-[#006781] rounded-full px-[9px] py-[2.25px] text-[11px] sm:text-[12.375px] leading-[15.75px] tracking-normal sm:tracking-[0.6188px]"
             >AHPRA Verified</span
           >
         </div>
@@ -97,7 +115,7 @@
         <div
           class="max-w-[1440px] h-full mx-auto px-4 lg:px-[54px] flex items-center justify-between gap-4"
         >
-          <a href="index.html" aria-label="Team Allied Health home"
+          <a href="index.html#top" aria-label="Team Allied Health home"
             ><img
               src="assets/logo.webp"
               width="95"
@@ -111,7 +129,7 @@
             aria-label="Main"
           >
             <a
-              href="index.html"
+              href="index.html#top"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Home</a
             >
@@ -123,7 +141,7 @@
             <a
               href="index.html#who-we-help"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
-              >How We Work</a
+              >Who We Help</a
             >
             <a
               href="index.html#coverage"
@@ -141,7 +159,7 @@
               >FAQs</a
             >
             <a
-              href="index.html#contact"
+              href="index.html#referral"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Contact Us</a
             >
@@ -150,8 +168,9 @@
           <div class="flex items-center gap-3">
             <a
               href="index.html#referral"
-              class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-5 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
-              >Make an Online<br />Referral</a
+              class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-4 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold whitespace-nowrap shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
+              ><span class="lg:hidden">Make a Referral</span
+              ><span class="hidden lg:inline">Make an Online<br />Referral</span></a
             >
             <!-- Mobile menu (native details, no JS) -->
             <details class="xl:hidden relative">
@@ -172,42 +191,42 @@
                 </svg>
               </summary>
               <nav
-                class="absolute right-0 mt-2 w-64 bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col text-[15.75px] font-bold text-[#40493f]"
+                class="absolute right-0 mt-2 w-64 bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-1.5 text-[15.75px] font-bold text-[#40493f]"
                 aria-label="Mobile"
               >
                 <a
-                  href="index.html"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  href="index.html#top"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >Home</a
                 >
                 <a
                   href="index.html#services"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >Services</a
                 >
                 <a
                   href="index.html#who-we-help"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
-                  >How We Work</a
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  >Who We Help</a
                 >
                 <a
                   href="index.html#coverage"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >Greater Melbourne &amp; Telehealth</a
                 >
                 <a
                   href="index.html#about"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >About Us</a
                 >
                 <a
                   href="index.html#faqs"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >FAQs</a
                 >
                 <a
-                  href="index.html#contact"
-                  class="px-3 py-2 rounded-[9px] hover:bg-[#e7eeff]"
+                  href="index.html#referral"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
                   >Contact Us</a
                 >
               </nav>
@@ -223,7 +242,7 @@
           <nav aria-label="Breadcrumb" class="text-[14px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Privacy Policy</span></nav>
           <span class="mt-5 inline-flex items-center gap-[6.75px] bg-[#d1fae5] rounded-full px-[13.5px] py-[4.5px] font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#064e3b]">🛡️ Legal</span>
           <h1 class="mt-3 font-black text-[34px] leading-[40px] lg:text-[48px] lg:leading-[54px] tracking-[-1.2px] text-[#1a602b]">Privacy Policy</h1>
-          <p class="mt-3 text-[16px] font-bold text-[#475569]">Last updated: [Effective Date]</p>
+          <p class="mt-3 text-[16px] font-bold text-[#475569]">Last updated: 7 October 2026</p>
         </div>
       </section>
 
@@ -250,7 +269,7 @@
 <ul>
 <li><strong>Identity and contact details</strong> — name, date of birth, address, email, phone number, and emergency contacts.</li>
 <li><strong>Health information</strong> — medical history, diagnoses, assessment results, therapy goals, clinical notes, reports and correspondence from other health professionals.</li>
-<li><strong>Funding information</strong> — NDIS participant number and plan details, TAC claim number, Medicare and private health insurance details, and plan manager or support coordinator details.</li>
+<li><strong>Funding information</strong> — TAC claim number and details, private health insurance details, and support coordinator or case manager details.</li>
 <li><strong>Referrer details</strong> — when a GP, Support Coordinator, Plan Manager or other professional refers a participant to us.</li>
 <li><strong>Website information</strong> — information you submit through our online referral form, and basic technical data such as browser type and pages visited.</li>
 </ul></section>
@@ -262,9 +281,9 @@
 <ul>
 <li>assess referrals, triage enquiries and contact you about appointments;</li>
 <li>plan and deliver therapy, including coordinated care between our clinicians and Allied Health Assistants;</li>
-<li>prepare reports, including progress and plan review reports for NDIS, TAC or other funders;</li>
+<li>prepare reports, including progress and plan review reports for TAC, insurers or other funders;</li>
 <li>process invoices and claims with funding bodies, insurers or plan managers;</li>
-<li>meet our legal, professional (AHPRA and professional association) and NDIS Practice Standards obligations;</li>
+<li>meet our legal and professional (AHPRA and professional association) obligations;</li>
 <li>improve the quality and safety of our services, including handling feedback and complaints.</li>
 </ul>
 <p>We do not sell your personal information, and we do not use health information for marketing.</p></section>
@@ -272,7 +291,7 @@
 <p>We only disclose personal information for the purpose it was collected, for a directly related purpose you would reasonably expect, with your consent, or where required or authorised by law. This may include disclosure to:</p>
 <ul>
 <li>other members of your care team, such as your GP, specialists or school, with your consent;</li>
-<li>funding bodies and their agents (for example the NDIA, NDIS Quality and Safeguards Commission, TAC, Medicare, private health insurers or plan managers);</li>
+<li>funding bodies and their agents (for example the TAC or private health insurers);</li>
 <li>service providers who support our operations (such as practice management, cloud storage and IT providers) under confidentiality obligations;</li>
 <li>authorities where we are legally required to report (for example child safety concerns or a serious threat to life, health or safety).</li>
 </ul>
@@ -292,11 +311,10 @@
 <ul>
 <li>the Office of the Australian Information Commissioner — <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>, 1300 363 992;</li>
 <li>the Health Complaints Commissioner (Victoria) — <a href="https://hcc.vic.gov.au" target="_blank" rel="noopener">hcc.vic.gov.au</a>, 1300 582 113;</li>
-<li>for NDIS participants, the NDIS Quality and Safeguards Commission — <a href="https://www.ndiscommission.gov.au" target="_blank" rel="noopener">ndiscommission.gov.au</a>, 1800 035 544.</li>
 </ul></section>
 <section><h2 id="contact" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">10. Contact us</h2><p><strong>Privacy Officer, Team Allied Health Australia Pty Ltd</strong><br />
 Email: <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a><br />
-Phone: [Contact Number]<br />
+Phone: <a href="tel:+61412345678">+61 412 345 678</a><br />
 Postal address: [Business Address]<br />
 ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The current version will always be available on this page.</p></section>
           </div>
@@ -306,14 +324,18 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
 
     <!-- ===================== FOOTER ===================== -->
     <footer
-      class="bg-[#112417] border-t-[1.125px] border-[#022c22] pt-[73.125px] pb-[17px]"
+      class="bg-[#112417] border-t-[1.125px] border-[#022c22] pt-12 lg:pt-[73.125px] pb-[17px]"
     >
       <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[36px] pb-[54px]"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[36px] pb-[54px]"
         >
           <div class="lg:col-span-2 flex flex-col">
-            <div class="flex items-center gap-[13.5px]">
+            <a
+              href="#top"
+              class="flex items-center gap-[13.5px] w-fit"
+              aria-label="Back to top"
+            >
               <img
                 src="assets/logo.webp"
                 width="43"
@@ -321,10 +343,10 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
                 alt="Team Allied Health logo"
                 class="size-[43px] object-cover"
               />
-              <p class="font-bold text-[22.5px] leading-[31.5px] text-white">
+              <span class="font-bold text-[22.5px] leading-[31.5px] text-white">
                 Team Allied Health
-              </p>
-            </div>
+              </span>
+            </a>
             <p
               class="mt-[18px] max-w-[504px] text-[15.75px] leading-[25.594px] text-[rgba(209,250,229,0.8)]"
             >
@@ -353,7 +375,9 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
                   width="12.605"
                   height="12.586"
                   alt=""
-                />[Contact Number]
+                /><a href="tel:+61412345678" class="hover:text-white"
+                  >+61 412 345 678</a
+                >
               </li>
               <li class="flex items-center gap-[9px]">
                 <img
@@ -361,7 +385,7 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
                   width="14.4"
                   height="14.4"
                   alt=""
-                />Mon - Fri: 8:30 AM - 5:30 PM AEST
+                />Mon - Fri: 8:30 AM - 5:30 PM AEST/AEDT
               </li>
             </ul>
           </div>
@@ -375,37 +399,37 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#early-intervention" class="hover:text-white"
                   >🧸 Early Intervention</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#speech-therapy" class="hover:text-white"
                   >💬 Speech Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#occupational-therapy" class="hover:text-white"
                   >🎨 Occupational Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#psychology" class="hover:text-white"
                   >🧠 Psychology &amp; Wellbeing</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#behaviour-support" class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#physiotherapy" class="hover:text-white"
                   >🏃 Physiotherapy</a
                 >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-white"
+                <a href="index.html#allied-health-assistants" class="hover:text-white"
                   >⭐ Allied Health Assistants</a
                 >
               </li>
@@ -420,7 +444,7 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
             <ul
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
-              <li><a href="index.html" class="hover:text-white">Home</a></li>
+              <li><a href="index.html#top" class="hover:text-white">Home</a></li>
               <li><a href="index.html#about" class="hover:text-white">About Us</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
@@ -438,7 +462,7 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
                 >
               </li>
               <li>
-                <a href="index.html#contact" class="hover:text-white">Contact Us</a>
+                <a href="index.html#referral" class="hover:text-white">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -450,13 +474,22 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
             © 2026 Team Allied Health Australia Pty Ltd. All rights reserved.
           </p>
           <nav class="flex flex-wrap gap-x-[27px] gap-y-2" aria-label="Legal">
-            <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
-            <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a>
-            <a href="index.html" class="hover:text-white">Participant Charter</a>
-            <a href="index.html" class="hover:text-white">Feedback &amp; Complaints</a>
+            <a href="privacy-policy.html" class="hover:text-white"
+              >Privacy Policy</a
+            >
+            <a href="terms-of-service.html" class="hover:text-white"
+              >Terms of Service</a
+            >
+            <a href="participant-charter.html" class="hover:text-white">Participant Charter</a>
+            <a href="terms-of-service.html#feedback" class="hover:text-white">Feedback &amp; Complaints</a>
           </nav>
         </div>
       </div>
     </footer>
+    <script>
+      document.querySelectorAll("header details nav a").forEach((a) =>
+        a.addEventListener("click", () => { a.closest("details").open = false; }),
+      );
+    </script>
   </body>
 </html>
