@@ -59,12 +59,18 @@
       .faq-chevron {
         transition: transform 0.35s ease;
       }
-      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
+      .legal p, .legal li { font-size: 18px; line-height: 30px; color: #334155; }
       .legal p + p { margin-top: 14px; }
       .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
       .legal a { color: #006781; font-weight: 700; }
       .legal a:hover { text-decoration: underline; }
       .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
+      /* mobile menu: fade/slide in instead of popping open */
+      @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.97); } to { opacity: 1; transform: none; } }
+      header details[open] > nav { transform-origin: top right; animation: menu-in 0.2s ease-out; }
+      @media (prefers-reduced-motion: reduce) { header details[open] > nav { animation: none; } }
+      /* base text size inside page content (matches the 18px text step) */
+      main { font-size: 18px; }
     </style>
   </head>
   <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
@@ -134,24 +140,25 @@
               >Home</a
             >
             <a
-              href="index.html#services"
+              href="services.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Services</a
             >
             <a
-              href="index.html#who-we-help"
+              href="who-we-help.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Who We Help</a
             >
+
             <a
-              href="index.html#coverage"
-              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
-              >Greater Melbourne &amp; Telehealth</a
-            >
-            <a
-              href="index.html#about"
+              href="about.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >About Us</a
+            >
+            <a
+              href="blogs.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Blogs</a
             >
             <a
               href="index.html#faqs"
@@ -159,7 +166,7 @@
               >FAQs</a
             >
             <a
-              href="index.html#referral"
+              href="contact.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Contact Us</a
             >
@@ -170,7 +177,9 @@
               href="index.html#referral"
               class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-4 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold whitespace-nowrap shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
               ><span class="lg:hidden">Make a Referral</span
-              ><span class="hidden lg:inline">Make an Online<br />Referral</span></a
+              ><span class="hidden lg:inline"
+                >Make an Online<br />Referral</span
+              ></a
             >
             <!-- Mobile menu (native details, no JS) -->
             <details class="xl:hidden relative">
@@ -191,42 +200,52 @@
                 </svg>
               </summary>
               <nav
-                class="absolute right-0 mt-2 w-64 bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-3 text-[15.75px] font-bold text-[#40493f]"
+                class="absolute right-0 mt-2 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-3 text-[15.75px] font-bold text-[#40493f]"
                 aria-label="Mobile"
+                id="mobile-nav"
               >
                 <a
                   href="index.html#top"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Home</a
                 >
-                <a
-                  href="index.html#services"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                <div class="flex items-center gap-1"><a
+                  href="services.html"
+                  class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Services</a
-                >
+                ><button type="button" data-submenu-toggle aria-expanded="false" aria-controls="services-submenu" aria-label="Toggle services menu" class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"><svg class="size-4 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 24 24" fill="none" stroke="#004719" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button></div>
+                <div class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden" id="services-submenu" data-submenu>
+                    <a href="occupational-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Occupational Therapy</a>
+                    <a href="speech-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Speech Therapy</a>
+                    <a href="physiotherapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Physiotherapy</a>
+                    <a href="psychology.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Psychology</a>
+                    <a href="positive-behaviour-support.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Positive Behaviour Support</a>
+                    <a href="early-intervention.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Early Intervention</a>
+                </div>
                 <a
-                  href="index.html#who-we-help"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="who-we-help.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Who We Help</a
                 >
+
                 <a
-                  href="index.html#coverage"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
-                  >Greater Melbourne &amp; Telehealth</a
-                >
-                <a
-                  href="index.html#about"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="about.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >About Us</a
                 >
                 <a
+                  href="blogs.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >Blogs</a
+                >
+                <a
                   href="index.html#faqs"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >FAQs</a
                 >
                 <a
-                  href="index.html#referral"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="contact.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Contact Us</a
                 >
               </nav>
@@ -236,13 +255,14 @@
       </div>
     </header>
 
+
     <main>
-      <section class="py-[64px] lg:py-[80px]" style="background-image: linear-gradient(140.32deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
+      <section class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140.32deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
         <div class="max-w-[1008px] mx-auto px-4 lg:px-[54px]">
-          <nav aria-label="Breadcrumb" class="text-[14px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Privacy Policy</span></nav>
+          <nav aria-label="Breadcrumb" class="text-[18px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Privacy Policy</span></nav>
           <span class="mt-5 inline-flex items-center gap-[6.75px] bg-[#d1fae5] rounded-full px-[13.5px] py-[4.5px] font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#064e3b]">🛡️ Legal</span>
-          <h1 class="mt-3 font-black text-[34px] leading-[40px] lg:text-[48px] lg:leading-[54px] tracking-[-1.2px] text-[#1a602b]">Privacy Policy</h1>
-          <p class="mt-3 text-[16px] font-bold text-[#475569]">Last updated: 7 October 2026</p>
+          <h1 class="mt-3 font-bold text-[#1a602b] text-[32px] leading-[40px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Privacy Policy</h1>
+          <p class="mt-3 text-[18px] font-bold text-[#475569]">Last updated: 7 October 2026</p>
         </div>
       </section>
 
@@ -253,7 +273,7 @@
 <p>By using our website, submitting a referral or receiving our services, you acknowledge the practices described in this policy.</p>
             <nav aria-label="Contents" class="mt-8 bg-[rgba(236,253,245,0.6)] border-[1.125px] border-[#d1fae5] rounded-[22.5px] p-6">
               <p class="!text-[13.5px] !leading-[18px] font-bold tracking-[0.675px] uppercase !text-[#065f46]">On this page</p>
-              <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-[15.75px] font-bold text-[#334155]"><li><a href="#information-we-collect" class="hover:text-[#1a602b] hover:underline">1. Information we collect</a></li>
+              <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-[18px] font-bold text-[#334155]"><li><a href="#information-we-collect" class="hover:text-[#1a602b] hover:underline">1. Information we collect</a></li>
 <li><a href="#how-we-collect" class="hover:text-[#1a602b] hover:underline">2. How we collect information</a></li>
 <li><a href="#how-we-use" class="hover:text-[#1a602b] hover:underline">3. How we use your information</a></li>
 <li><a href="#disclosure" class="hover:text-[#1a602b] hover:underline">4. When we disclose information</a></li>
@@ -264,7 +284,7 @@
 <li><a href="#complaints" class="hover:text-[#1a602b] hover:underline">9. Privacy complaints</a></li>
 <li><a href="#contact" class="hover:text-[#1a602b] hover:underline">10. Contact us</a></li></ol>
             </nav>
-            <section><h2 id="information-we-collect" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">1. Information we collect</h2>
+            <section><h2 id="information-we-collect" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">1. Information we collect</h2>
 <p>We only collect information that is reasonably necessary to provide safe, effective allied health services. This may include:</p>
 <ul>
 <li><strong>Identity and contact details</strong> — name, date of birth, address, email, phone number, and emergency contacts.</li>
@@ -273,10 +293,10 @@
 <li><strong>Referrer details</strong> — when a GP, Support Coordinator, Plan Manager or other professional refers a participant to us.</li>
 <li><strong>Website information</strong> — information you submit through our online referral form, and basic technical data such as browser type and pages visited.</li>
 </ul></section>
-<section><h2 id="how-we-collect" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">2. How we collect information</h2>
+<section><h2 id="how-we-collect" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">2. How we collect information</h2>
 <p>Wherever practical we collect information directly from you (or your parent, guardian or nominee). We may also collect it from third parties with your consent or where permitted by law, such as referrers, GPs and specialists, schools and early childhood services, the NDIA, TAC, plan managers and support coordinators.</p>
 <p>You may choose to deal with us anonymously or under a pseudonym where it is lawful and practicable, but in most cases we need your identity to provide clinical care and process funding.</p></section>
-<section><h2 id="how-we-use" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">3. How we use your information</h2>
+<section><h2 id="how-we-use" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">3. How we use your information</h2>
 <p>We use personal information to:</p>
 <ul>
 <li>assess referrals, triage enquiries and contact you about appointments;</li>
@@ -287,7 +307,7 @@
 <li>improve the quality and safety of our services, including handling feedback and complaints.</li>
 </ul>
 <p>We do not sell your personal information, and we do not use health information for marketing.</p></section>
-<section><h2 id="disclosure" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">4. When we disclose information</h2>
+<section><h2 id="disclosure" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">4. When we disclose information</h2>
 <p>We only disclose personal information for the purpose it was collected, for a directly related purpose you would reasonably expect, with your consent, or where required or authorised by law. This may include disclosure to:</p>
 <ul>
 <li>other members of your care team, such as your GP, specialists or school, with your consent;</li>
@@ -296,23 +316,23 @@
 <li>authorities where we are legally required to report (for example child safety concerns or a serious threat to life, health or safety).</li>
 </ul>
 <p>Some of our software providers may store data outside Australia. Where this occurs, we take reasonable steps to ensure the information is protected to a standard consistent with the APPs.</p></section>
-<section><h2 id="security" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">5. Storage and security</h2>
+<section><h2 id="security" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">5. Storage and security</h2>
 <p>We store information in secure electronic practice management systems with access controls, and we take reasonable steps to protect it from misuse, interference, loss and unauthorised access, modification or disclosure. Telehealth sessions are conducted through secure video platforms.</p>
 <p>Health records are retained for the periods required by law — in Victoria, generally at least 7 years after the last service, or for a child until they turn 25 — and are then securely destroyed or de-identified.</p></section>
-<section><h2 id="access" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">6. Accessing and correcting your information</h2>
+<section><h2 id="access" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">6. Accessing and correcting your information</h2>
 <p>You may request access to the personal information we hold about you, or ask us to correct information you believe is inaccurate, out of date or incomplete. Please contact our Privacy Officer using the details below. We will respond within a reasonable time (usually 30 days). In limited circumstances permitted by law we may refuse access, and we will explain why in writing.</p></section>
-<section><h2 id="website" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">7. Website, cookies and online forms</h2>
+<section><h2 id="website" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">7. Website, cookies and online forms</h2>
 <p>Information submitted through our online referral form is used only to process the referral. Please do not include more health information in the form than is needed for us to contact you; our intake team will collect further details securely.</p>
 <p>Our website may use cookies or similar technologies to keep the site working and to understand general usage. You can disable cookies in your browser settings. Our website may link to third-party sites, which have their own privacy practices.</p></section>
-<section><h2 id="breaches" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">8. Data breaches</h2>
+<section><h2 id="breaches" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">8. Data breaches</h2>
 <p>If a data breach is likely to result in serious harm, we will notify affected individuals and the Office of the Australian Information Commissioner (OAIC) in accordance with the Notifiable Data Breaches scheme.</p></section>
-<section><h2 id="complaints" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">9. Privacy complaints</h2>
+<section><h2 id="complaints" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">9. Privacy complaints</h2>
 <p>If you have a concern about how we have handled your personal information, please contact our Privacy Officer first so we can try to resolve it. If you are not satisfied with our response, you may contact:</p>
 <ul>
 <li>the Office of the Australian Information Commissioner — <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>, 1300 363 992;</li>
 <li>the Health Complaints Commissioner (Victoria) — <a href="https://hcc.vic.gov.au" target="_blank" rel="noopener">hcc.vic.gov.au</a>, 1300 582 113;</li>
 </ul></section>
-<section><h2 id="contact" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">10. Contact us</h2><p><strong>Privacy Officer, Team Allied Health Australia Pty Ltd</strong><br />
+<section><h2 id="contact" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">10. Contact us</h2><p><strong>Privacy Officer, Team Allied Health Australia Pty Ltd</strong><br />
 Email: <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a><br />
 Phone: <a href="tel:+61412345678">+61 412 345 678</a><br />
 Postal address: [Business Address]<br />
@@ -399,32 +419,32 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
               <li>
-                <a href="index.html#early-intervention" class="hover:text-white"
+                <a href="early-intervention.html" class="hover:text-white"
                   >🧸 Early Intervention</a
                 >
               </li>
               <li>
-                <a href="index.html#speech-therapy" class="hover:text-white"
+                <a href="speech-therapy.html" class="hover:text-white"
                   >💬 Speech Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#occupational-therapy" class="hover:text-white"
+                <a href="occupational-therapy.html" class="hover:text-white"
                   >🎨 Occupational Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#psychology" class="hover:text-white"
+                <a href="psychology.html" class="hover:text-white"
                   >🧠 Psychology &amp; Wellbeing</a
                 >
               </li>
               <li>
-                <a href="index.html#behaviour-support" class="hover:text-white"
+                <a href="positive-behaviour-support.html" class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
               <li>
-                <a href="index.html#physiotherapy" class="hover:text-white"
+                <a href="physiotherapy.html" class="hover:text-white"
                   >🏃 Physiotherapy</a
                 >
               </li>
@@ -445,7 +465,12 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
               <li><a href="index.html#top" class="hover:text-white">Home</a></li>
-              <li><a href="index.html#about" class="hover:text-white">About Us</a></li>
+              <li>
+                <a href="about.html" class="hover:text-white">About Us</a>
+              </li>
+              <li><a href="services.html" class="hover:text-white">Services</a></li>
+              <li><a href="who-we-help.html" class="hover:text-white">Who We Help</a></li>
+              <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
                   >Service Areas &amp; Suburbs</a
@@ -462,7 +487,7 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
                 >
               </li>
               <li>
-                <a href="index.html#referral" class="hover:text-white">Contact Us</a>
+                <a href="contact.html" class="hover:text-white">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -480,15 +505,52 @@ ABN: [ABN]</p><p>We may update this Privacy Policy from time to time. The curren
             <a href="terms-of-service.html" class="hover:text-white"
               >Terms of Service</a
             >
-            <a href="participant-charter.html" class="hover:text-white">Participant Charter</a>
-            <a href="terms-of-service.html#feedback" class="hover:text-white">Feedback &amp; Complaints</a>
+            <a href="participant-charter.html" class="hover:text-white"
+              >Participant Charter</a
+            >
+            <a href="terms-of-service.html#feedback" class="hover:text-white"
+              >Feedback &amp; Complaints</a
+            >
           </nav>
         </div>
       </div>
     </footer>
+
     <script>
       document.querySelectorAll("header details nav a").forEach((a) =>
         a.addEventListener("click", () => { a.closest("details").open = false; }),
+      );
+    </script>
+    <script>
+      // mobile menu: animate closing too (native <details> closes instantly)
+      (() => {
+        const menu = document.querySelector("header details");
+        if (!menu) return;
+        const nav = menu.querySelector("nav");
+        let closing = false;
+        menu.querySelector("summary").addEventListener("click", (e) => {
+          if (!menu.open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          e.preventDefault();
+          if (closing) return;
+          closing = true;
+          const done = () => { if (closing) { menu.open = false; closing = false; } };
+          nav.animate(
+            [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px) scale(0.97)" }],
+            { duration: 200, easing: "ease-in" },
+          ).onfinish = done;
+          setTimeout(done, 260); // fallback if the animation is throttled (background tab)
+        });
+      })();
+    </script>
+    <script>
+      // mobile menu: collapse / expand the Services submenu
+      document.querySelectorAll("[data-submenu-toggle]").forEach((b) =>
+        b.addEventListener("click", () => {
+          const open = b.getAttribute("aria-expanded") === "true";
+          b.setAttribute("aria-expanded", !open);
+          document.getElementById("services-submenu").classList.toggle("hidden", open);
+          b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
+        }),
       );
     </script>
   </body>

@@ -59,12 +59,18 @@
       .faq-chevron {
         transition: transform 0.35s ease;
       }
-      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
+      .legal p, .legal li { font-size: 18px; line-height: 30px; color: #334155; }
       .legal p + p { margin-top: 14px; }
       .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
       .legal a { color: #006781; font-weight: 700; }
       .legal a:hover { text-decoration: underline; }
       .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
+      /* mobile menu: fade/slide in instead of popping open */
+      @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.97); } to { opacity: 1; transform: none; } }
+      header details[open] > nav { transform-origin: top right; animation: menu-in 0.2s ease-out; }
+      @media (prefers-reduced-motion: reduce) { header details[open] > nav { animation: none; } }
+      /* base text size inside page content (matches the 18px text step) */
+      main { font-size: 18px; }
     </style>
   </head>
   <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
@@ -134,24 +140,25 @@
               >Home</a
             >
             <a
-              href="index.html#services"
+              href="services.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Services</a
             >
             <a
-              href="index.html#who-we-help"
+              href="who-we-help.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Who We Help</a
             >
+
             <a
-              href="index.html#coverage"
-              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
-              >Greater Melbourne &amp; Telehealth</a
-            >
-            <a
-              href="index.html#about"
+              href="about.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >About Us</a
+            >
+            <a
+              href="blogs.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Blogs</a
             >
             <a
               href="index.html#faqs"
@@ -159,7 +166,7 @@
               >FAQs</a
             >
             <a
-              href="index.html#referral"
+              href="contact.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Contact Us</a
             >
@@ -170,7 +177,9 @@
               href="index.html#referral"
               class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-4 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold whitespace-nowrap shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
               ><span class="lg:hidden">Make a Referral</span
-              ><span class="hidden lg:inline">Make an Online<br />Referral</span></a
+              ><span class="hidden lg:inline"
+                >Make an Online<br />Referral</span
+              ></a
             >
             <!-- Mobile menu (native details, no JS) -->
             <details class="xl:hidden relative">
@@ -191,42 +200,52 @@
                 </svg>
               </summary>
               <nav
-                class="absolute right-0 mt-2 w-64 bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-3 text-[15.75px] font-bold text-[#40493f]"
+                class="absolute right-0 mt-2 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-3 text-[15.75px] font-bold text-[#40493f]"
                 aria-label="Mobile"
+                id="mobile-nav"
               >
                 <a
                   href="index.html#top"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Home</a
                 >
-                <a
-                  href="index.html#services"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                <div class="flex items-center gap-1"><a
+                  href="services.html"
+                  class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Services</a
-                >
+                ><button type="button" data-submenu-toggle aria-expanded="false" aria-controls="services-submenu" aria-label="Toggle services menu" class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"><svg class="size-4 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 24 24" fill="none" stroke="#004719" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button></div>
+                <div class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden" id="services-submenu" data-submenu>
+                    <a href="occupational-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Occupational Therapy</a>
+                    <a href="speech-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Speech Therapy</a>
+                    <a href="physiotherapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Physiotherapy</a>
+                    <a href="psychology.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Psychology</a>
+                    <a href="positive-behaviour-support.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Positive Behaviour Support</a>
+                    <a href="early-intervention.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Early Intervention</a>
+                </div>
                 <a
-                  href="index.html#who-we-help"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="who-we-help.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Who We Help</a
                 >
+
                 <a
-                  href="index.html#coverage"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
-                  >Greater Melbourne &amp; Telehealth</a
-                >
-                <a
-                  href="index.html#about"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="about.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >About Us</a
                 >
                 <a
+                  href="blogs.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >Blogs</a
+                >
+                <a
                   href="index.html#faqs"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >FAQs</a
                 >
                 <a
-                  href="index.html#referral"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff] active:bg-[#e7eeff]"
+                  href="contact.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Contact Us</a
                 >
               </nav>
@@ -236,13 +255,14 @@
       </div>
     </header>
 
+
     <main>
-      <section class="py-[64px] lg:py-[80px]" style="background-image: linear-gradient(140.32deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
+      <section class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140.32deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
         <div class="max-w-[1008px] mx-auto px-4 lg:px-[54px]">
-          <nav aria-label="Breadcrumb" class="text-[14px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Participant Charter</span></nav>
+          <nav aria-label="Breadcrumb" class="text-[18px] font-bold text-[#475569]"><a href="index.html" class="hover:text-[#1a602b]">Home</a> <span class="mx-1">/</span> <span class="text-[#1a602b]">Participant Charter</span></nav>
           <span class="mt-5 inline-flex items-center gap-[6.75px] bg-[#d1fae5] rounded-full px-[13.5px] py-[4.5px] font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#064e3b]">🛡️ Legal</span>
-          <h1 class="mt-3 font-black text-[34px] leading-[40px] lg:text-[48px] lg:leading-[54px] tracking-[-1.2px] text-[#1a602b]">Participant Charter</h1>
-          <p class="mt-3 text-[16px] font-bold text-[#475569]">Last updated: 7 October 2026</p>
+          <h1 class="mt-3 font-bold text-[#1a602b] text-[32px] leading-[40px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Participant Charter</h1>
+          <p class="mt-3 text-[18px] font-bold text-[#475569]">Last updated: 7 October 2026</p>
         </div>
       </section>
 
@@ -252,13 +272,13 @@
             <p>This charter sets out what you can expect from Team Allied Health, and what we ask of you, so that every participant, family and carer receives safe, respectful and effective care. It applies to everyone who receives our services, including the parents, carers and nominees who support them.</p>
             <nav aria-label="Contents" class="mt-8 bg-[rgba(236,253,245,0.6)] border-[1.125px] border-[#d1fae5] rounded-[22.5px] p-6">
               <p class="!text-[13.5px] !leading-[18px] font-bold tracking-[0.675px] uppercase !text-[#065f46]">On this page</p>
-              <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-[15.75px] font-bold text-[#334155]"><li><a href="#rights" class="hover:text-[#1a602b] hover:underline">1. Your rights</a></li>
+              <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-[18px] font-bold text-[#334155]"><li><a href="#rights" class="hover:text-[#1a602b] hover:underline">1. Your rights</a></li>
 <li><a href="#our-commitments" class="hover:text-[#1a602b] hover:underline">2. Our commitments to you</a></li>
 <li><a href="#responsibilities" class="hover:text-[#1a602b] hover:underline">3. Your responsibilities</a></li>
 <li><a href="#feedback" class="hover:text-[#1a602b] hover:underline">4. Feedback and complaints</a></li>
 <li><a href="#contact" class="hover:text-[#1a602b] hover:underline">5. Contact us</a></li></ol>
             </nav>
-            <section><h2 id="rights" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">1. Your rights</h2>
+            <section><h2 id="rights" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">1. Your rights</h2>
 <ul>
 <li><strong>Respect and dignity</strong> — to be treated with courtesy and respect, free from discrimination, abuse, neglect and exploitation.</li>
 <li><strong>Choice and control</strong> — to be involved in decisions about your care, set your own goals and choose who supports you.</li>
@@ -269,7 +289,7 @@
 <li><strong>Support</strong> — to have a family member, carer, advocate or interpreter with you.</li>
 <li><strong>Feedback</strong> — to give feedback or make a complaint without it affecting your care.</li>
 </ul></section>
-<section><h2 id="our-commitments" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">2. Our commitments to you</h2>
+<section><h2 id="our-commitments" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">2. Our commitments to you</h2>
 <ul>
 <li>Deliver evidence-based therapy through qualified, AHPRA-registered clinicians (where registration applies) and supervised Allied Health Assistants.</li>
 <li>Work with you to set clear goals and review your progress regularly.</li>
@@ -277,7 +297,7 @@
 <li>Arrive on time for appointments and let you know as early as possible if we need to reschedule.</li>
 <li>Explain fees before services begin and keep you informed about how your funding is used.</li>
 </ul></section>
-<section><h2 id="responsibilities" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">3. Your responsibilities</h2>
+<section><h2 id="responsibilities" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">3. Your responsibilities</h2>
 <ul>
 <li>Treat our staff with courtesy and respect.</li>
 <li>Give us accurate information about your health, funding and circumstances, and tell us about any changes.</li>
@@ -285,10 +305,10 @@
 <li>Provide a safe environment for home visits, including securing pets and letting us know about any hazards.</li>
 <li>Take part in agreed home practice where you can, and tell us if something isn’t working for you.</li>
 </ul></section>
-<section><h2 id="feedback" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">4. Feedback and complaints</h2>
+<section><h2 id="feedback" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">4. Feedback and complaints</h2>
 <p>We welcome compliments, suggestions and complaints — they help us improve. You can contact us by email at <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a> or by phone on <a href="tel:+61412345678">+61 412 345 678</a>. We will acknowledge your feedback promptly and aim to resolve concerns quickly and fairly.</p>
 <p>If you are not satisfied with our response, you can contact the Health Complaints Commissioner (Victoria) on 1300 582 113 or at <a href="https://hcc.vic.gov.au" target="_blank" rel="noopener">hcc.vic.gov.au</a>.</p></section>
-<section><h2 id="contact" class="mt-12 mb-4 font-black text-[24px] lg:text-[27px] leading-[34px] tracking-[-0.5px] text-[#1a602b] scroll-mt-6">5. Contact us</h2><p><strong>Team Allied Health Australia Pty Ltd</strong><br />
+<section><h2 id="contact" class="mt-12 mb-4 font-black text-[#1a602b] scroll-mt-6 text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">5. Contact us</h2><p><strong>Team Allied Health Australia Pty Ltd</strong><br />
 Email: <a href="mailto:info@teamalliedhealth.com.au">info@teamalliedhealth.com.au</a><br />
 Phone: <a href="tel:+61412345678">+61 412 345 678</a><br />
 Postal address: [Business Address]<br />
@@ -375,32 +395,32 @@ ABN: [ABN]</p></section>
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
               <li>
-                <a href="index.html#early-intervention" class="hover:text-white"
+                <a href="early-intervention.html" class="hover:text-white"
                   >🧸 Early Intervention</a
                 >
               </li>
               <li>
-                <a href="index.html#speech-therapy" class="hover:text-white"
+                <a href="speech-therapy.html" class="hover:text-white"
                   >💬 Speech Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#occupational-therapy" class="hover:text-white"
+                <a href="occupational-therapy.html" class="hover:text-white"
                   >🎨 Occupational Therapy</a
                 >
               </li>
               <li>
-                <a href="index.html#psychology" class="hover:text-white"
+                <a href="psychology.html" class="hover:text-white"
                   >🧠 Psychology &amp; Wellbeing</a
                 >
               </li>
               <li>
-                <a href="index.html#behaviour-support" class="hover:text-white"
+                <a href="positive-behaviour-support.html" class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
               <li>
-                <a href="index.html#physiotherapy" class="hover:text-white"
+                <a href="physiotherapy.html" class="hover:text-white"
                   >🏃 Physiotherapy</a
                 >
               </li>
@@ -421,7 +441,12 @@ ABN: [ABN]</p></section>
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
               <li><a href="index.html#top" class="hover:text-white">Home</a></li>
-              <li><a href="index.html#about" class="hover:text-white">About Us</a></li>
+              <li>
+                <a href="about.html" class="hover:text-white">About Us</a>
+              </li>
+              <li><a href="services.html" class="hover:text-white">Services</a></li>
+              <li><a href="who-we-help.html" class="hover:text-white">Who We Help</a></li>
+              <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
                   >Service Areas &amp; Suburbs</a
@@ -438,7 +463,7 @@ ABN: [ABN]</p></section>
                 >
               </li>
               <li>
-                <a href="index.html#referral" class="hover:text-white">Contact Us</a>
+                <a href="contact.html" class="hover:text-white">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -456,15 +481,52 @@ ABN: [ABN]</p></section>
             <a href="terms-of-service.html" class="hover:text-white"
               >Terms of Service</a
             >
-            <a href="participant-charter.html" class="hover:text-white">Participant Charter</a>
-            <a href="terms-of-service.html#feedback" class="hover:text-white">Feedback &amp; Complaints</a>
+            <a href="participant-charter.html" class="hover:text-white"
+              >Participant Charter</a
+            >
+            <a href="terms-of-service.html#feedback" class="hover:text-white"
+              >Feedback &amp; Complaints</a
+            >
           </nav>
         </div>
       </div>
     </footer>
+
     <script>
       document.querySelectorAll("header details nav a").forEach((a) =>
         a.addEventListener("click", () => { a.closest("details").open = false; }),
+      );
+    </script>
+    <script>
+      // mobile menu: animate closing too (native <details> closes instantly)
+      (() => {
+        const menu = document.querySelector("header details");
+        if (!menu) return;
+        const nav = menu.querySelector("nav");
+        let closing = false;
+        menu.querySelector("summary").addEventListener("click", (e) => {
+          if (!menu.open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          e.preventDefault();
+          if (closing) return;
+          closing = true;
+          const done = () => { if (closing) { menu.open = false; closing = false; } };
+          nav.animate(
+            [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px) scale(0.97)" }],
+            { duration: 200, easing: "ease-in" },
+          ).onfinish = done;
+          setTimeout(done, 260); // fallback if the animation is throttled (background tab)
+        });
+      })();
+    </script>
+    <script>
+      // mobile menu: collapse / expand the Services submenu
+      document.querySelectorAll("[data-submenu-toggle]").forEach((b) =>
+        b.addEventListener("click", () => {
+          const open = b.getAttribute("aria-expanded") === "true";
+          b.setAttribute("aria-expanded", !open);
+          document.getElementById("services-submenu").classList.toggle("hidden", open);
+          b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
+        }),
       );
     </script>
   </body>

@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blogs | Team Allied Health</title>
+    <meta
+      name="description"
+      content="Practical guidance from the Team Allied Health team for individuals, families and carers at every stage of life."
+    />
+    <link rel="icon" href="assets/logo.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Lato", "sans-serif"] } } },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        font-family: "Lato", sans-serif;
+        /* keep anchor targets clear of the sticky header */
+        scroll-padding-top: 130px;
+      }
+      /* form validation: only flag fields after the user has interacted */
+      .was-validated :is(input, textarea):invalid {
+        border-color: #dc2626;
+        background-color: #fef2f2;
+      }
+      .field-error {
+        display: none;
+        color: #b91c1c;
+        font-size: 13.5px;
+        line-height: 18px;
+        font-weight: 700;
+      }
+      .was-validated :is(input, textarea):invalid ~ .field-error {
+        display: block;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+      }
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-open .faq-chevron {
+        transform: rotate(180deg);
+      }
+      .faq-chevron {
+        transition: transform 0.35s ease;
+      }
+      .legal p,
+      .legal li {
+        font-size: 17px;
+        line-height: 29px;
+        color: #334155;
+      }
+      .legal p + p {
+        margin-top: 14px;
+      }
+      .legal ul {
+        list-style: disc;
+        padding-left: 22px;
+        margin: 12px 0;
+        display: grid;
+        gap: 6px;
+      }
+      .legal a {
+        color: #006781;
+        font-weight: 700;
+      }
+      .legal a:hover {
+        text-decoration: underline;
+      }
+      .legal h3 {
+        margin: 22px 0 8px;
+        font-weight: 700;
+        font-size: 18.5px;
+        color: #004719;
+      }
+      .wedge {
+        cursor: pointer;
+        outline: none;
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+      .wedge:hover,
+      .wedge:focus-visible {
+        transform: translate(var(--tx), var(--ty));
+        filter: url(#wedge-shadow);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wedge {
+          transition: none;
+        }
+      }
+      /* mobile menu: fade/slide in instead of popping open */
+      @keyframes menu-in {
+        from {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      header details[open] > nav {
+        transform-origin: top right;
+        animation: menu-in 0.2s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        header details[open] > nav {
+          animation: none;
+        }
+      }
+      /* base text size inside page content (matches the 18px text step) */
+      main {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
+    <!-- ===================== HEADER ===================== -->
+    <header
+      class="sticky top-0 z-20 border border-[#e6e0e0] shadow-[8px_-8px_25px_0_rgba(0,0,0,0.04)]"
+    >
+      <div class="bg-[#004719] py-[4.5px]">
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] flex items-center justify-between gap-3 text-white text-[12px] sm:text-[13.5px] font-bold tracking-normal sm:tracking-[0.54px] leading-[18px]"
+        >
+          <div class="flex items-center gap-3 lg:gap-[27px] min-w-0">
+            <a
+              href="mailto:info@teamalliedhealth.com.au"
+              class="flex items-center gap-[4.5px] hover:opacity-80 min-w-0"
+            >
+              <img
+                src="assets/icon-mail.svg"
+                width="13.125"
+                height="10.5"
+                alt=""
+                class="shrink-0"
+              />
+              <span class="truncate">info@teamalliedhealth.com.au</span>
+            </a>
+            <span class="opacity-30 hidden sm:inline">|</span>
+            <a
+              href="tel:+61412345678"
+              class="hidden sm:flex items-center gap-[4.5px] hover:opacity-80"
+            >
+              <img
+                src="assets/icon-phone.svg"
+                width="11.8125"
+                height="11.8125"
+                alt=""
+              />
+              <span>+61 412 345 678</span>
+            </a>
+          </div>
+          <span
+            class="shrink-0 whitespace-nowrap bg-[#006781] rounded-full px-[9px] py-[2.25px] text-[11px] sm:text-[12.375px] leading-[15.75px] tracking-normal sm:tracking-[0.6188px]"
+            >AHPRA Verified</span
+          >
+        </div>
+      </div>
+
+      <div class="bg-white/95 backdrop-blur-[13.5px] h-[90px]">
+        <div
+          class="max-w-[1440px] h-full mx-auto px-4 lg:px-[54px] flex items-center justify-between gap-4"
+        >
+          <a href="index.html#top" aria-label="Team Allied Health home"
+            ><img
+              src="assets/logo.webp"
+              width="95"
+              height="95"
+              alt="Team Allied Health logo"
+              class="size-[70px] lg:size-[95px] object-cover"
+          /></a>
+
+          <nav
+            class="hidden xl:flex items-center gap-[28px] text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold text-[#40493f]"
+            aria-label="Main"
+          >
+            <a
+              href="index.html#top"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Home</a
+            >
+            <a
+              href="services.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Services</a
+            >
+            <a
+              href="who-we-help.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Who We Help</a
+            >
+
+            <a
+              href="about.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >About Us</a
+            >
+            <a
+              href="blogs.html"
+              aria-current="page"
+              class="rounded-[9px] px-[9px] py-[4.5px] transition-colors bg-[#e7eeff] text-[#004719]"
+              >Blogs</a
+            >
+            <a
+              href="index.html#faqs"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >FAQs</a
+            >
+            <a
+              href="contact.html"
+              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
+              >Contact Us</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="index.html#referral"
+              class="bg-[#006781] hover:bg-[#0a3d62] transition-colors rounded-[9px] px-4 lg:px-[41.7px] py-[9px] text-white text-center text-[14px] lg:text-[15.75px] leading-[22.5px] tracking-[0.1575px] font-bold whitespace-nowrap shadow-[0_1.125px_1.125px_rgba(0,0,0,0.05)]"
+              ><span class="lg:hidden">Make a Referral</span
+              ><span class="hidden lg:inline"
+                >Make an Online<br />Referral</span
+              ></a
+            >
+            <!-- Mobile menu (native details, no JS) -->
+            <details class="xl:hidden relative">
+              <summary
+                class="cursor-pointer p-2 rounded-[9px] hover:bg-[#e7eeff]"
+                aria-label="Open menu"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#004719"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+              </summary>
+              <nav
+                class="absolute right-0 mt-2 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-[18px] shadow-xl border border-[#e7eeff] p-3 flex flex-col gap-3 text-[15.75px] font-bold text-[#40493f]"
+                aria-label="Mobile"
+                id="mobile-nav"
+              >
+                <a
+                  href="index.html#top"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >Home</a
+                >
+                <div class="flex items-center gap-1">
+                  <a
+                    href="services.html"
+                    class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Services</a
+                  ><button
+                    type="button"
+                    data-submenu-toggle
+                    aria-expanded="false"
+                    aria-controls="services-submenu"
+                    aria-label="Toggle services menu"
+                    class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >
+                    <svg
+                      class="size-4 transition-transform"
+                      style="transform: rotate(-90deg)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#004719"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden"
+                  id="services-submenu"
+                  data-submenu
+                >
+                  <a
+                    href="occupational-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Occupational Therapy</a
+                  >
+                  <a
+                    href="speech-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Speech Therapy</a
+                  >
+                  <a
+                    href="physiotherapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Physiotherapy</a
+                  >
+                  <a
+                    href="psychology.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Psychology</a
+                  >
+                  <a
+                    href="positive-behaviour-support.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Positive Behaviour Support</a
+                  >
+                  <a
+                    href="early-intervention.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Early Intervention</a
+                  >
+                </div>
+                <a
+                  href="who-we-help.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >Who We Help</a
+                >
+
+                <a
+                  href="about.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >About Us</a
+                >
+                <a
+                  href="blogs.html"
+                  aria-current="page"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
+                  >Blogs</a
+                >
+                <a
+                  href="index.html#faqs"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >FAQs</a
+                >
+                <a
+                  href="contact.html"
+                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >Contact Us</a
+                >
+              </nav>
+            </details>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="relative isolate overflow-hidden bg-[#1a602b] min-h-[480px] lg:min-h-[610px] flex items-center"
+      >
+        <img
+          src="assets/gallery-family.webp"
+          alt=""
+          class="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/70 via-[#0b2e14]/35 to-transparent"
+        ></div>
+        <div class="max-w-[1440px] w-full mx-auto px-4 lg:px-[54px] py-[56px]">
+          <p class="font-bold text-[18px] tracking-[3px] uppercase text-white">
+            Blogs
+          </p>
+          <h1
+            class="mt-5 max-w-[900px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[76px] tracking-[-2px]"
+          >
+            Insights for healthier, supported lives
+          </h1>
+          <p
+            class="mt-6 max-w-[820px] text-[18px] leading-[27px] lg:text-[26px] lg:leading-[31.5px] text-white"
+          >
+            Practical guidance from our allied health team for individuals,
+            families and carers at every stage of life.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="max-w-[1440px] mx-auto px-4 lg:px-[54px] py-10 lg:py-[56px]"
+      >
+        <form role="search" onsubmit="return false;">
+          <label class="sr-only" for="blog-search"
+            >Search articles and resources</label
+          >
+          <input
+            id="blog-search"
+            type="search"
+            placeholder="Search articles and resources..."
+            class="h-[64px] w-full rounded-full border border-[#e2e8f0] bg-white px-8 text-[18px] outline-none placeholder:text-[#94a3b8] focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+          />
+        </form>
+        <div id="blog-chips" class="mt-8 flex flex-wrap gap-3">
+          <button
+            type="button"
+            data-cat=""
+            data-on="true"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            All Articles</button
+          ><button
+            type="button"
+            data-cat="Child Development"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Child Development</button
+          ><button
+            type="button"
+            data-cat="Speech Therapy"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Speech Therapy</button
+          ><button
+            type="button"
+            data-cat="Occupational Therapy"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Occupational Therapy</button
+          ><button
+            type="button"
+            data-cat="Physiotherapy"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Physiotherapy</button
+          ><button
+            type="button"
+            data-cat="Psychology &amp; Wellbeing"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Psychology &amp; Wellbeing</button
+          ><button
+            type="button"
+            data-cat="Behaviour Support"
+            data-on="false"
+            class="rounded-full border border-[#d9e2dc] bg-white px-5 py-2.5 text-[18px] text-[#0f2a1a] hover:bg-[#e7eeff] transition-colors data-[on=true]:bg-[#0b3d24] data-[on=true]:text-white data-[on=true]:border-[#0b3d24]"
+          >
+            Behaviour Support
+          </button>
+        </div>
+      </section>
+
+      <section class="bg-[#f0f3ff] py-10 lg:py-[56px]">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
+          <h2
+            class="font-black text-[#0f3d26] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+          >
+            Latest insights
+          </h2>
+          <p
+            class="mt-3 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]"
+          >
+            Explore practical tips, expert advice and trusted information from
+            our allied health team.
+          </p>
+          <div
+            id="blog-grid"
+            class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <article
+              data-cat="Speech Therapy"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/svc-speech.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Speech Therapy</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Everyday ways to support your child's communication
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  Simple strategies to encourage language development at home
+                  and in everyday life.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              data-cat="Occupational Therapy"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/blog-ot-puzzle.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Occupational Therapy</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Making daily routines easier with occupational therapy
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  Practical ideas to build independence and confidence in
+                  everyday activities.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              data-cat="Physiotherapy"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/svc-physio.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Physiotherapy</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Building strength and confidence through movement
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  How physiotherapy can support mobility, independence and an
+                  active life at any age.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              data-cat="Psychology &amp; Wellbeing"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/svc-psychology.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Psychology &amp; Wellbeing</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Understanding emotions and supporting wellbeing
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  Guidance for managing big feelings and building positive
+                  mental health habits.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              data-cat="Behaviour Support"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/svc-behaviour.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Behaviour Support</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Positive behaviour support starts with understanding
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  How personalised strategies can create meaningful and lasting
+                  change.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              data-cat="Child Development"
+              class="flex flex-col overflow-hidden rounded-[28px] border border-[#1a602b] bg-white"
+            >
+              <img
+                src="assets/svc-developmental.webp"
+                alt=""
+                class="h-[240px] lg:h-[275px] w-full object-cover"
+              />
+              <div class="flex flex-1 flex-col p-7">
+                <span
+                  class="w-fit rounded-full bg-[#e6f4ec] px-3.5 py-1.5 text-[12.5px] font-bold tracking-[0.6px] uppercase text-[#0b3d24]"
+                  >Child Development</span
+                >
+                <h3
+                  class="mt-4 font-bold text-[#0f3d26] text-[24px] leading-[32px]"
+                >
+                  Early support, stronger foundations: what families can expect
+                </h3>
+                <p class="mt-3 text-[#475569] text-[18px] leading-[27px]">
+                  An overview of early intervention and how it can help children
+                  thrive.
+                </p>
+                <a
+                  href="#"
+                  class="mt-auto pt-8 inline-flex items-center gap-2 font-bold text-[#0f3d26] hover:underline"
+                  >Read article <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+          </div>
+          <p id="blog-empty" class="hidden mt-12 text-[18px] text-[#475569]">
+            No articles match your search.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="max-w-[1440px] mx-auto px-4 lg:px-[54px] py-10 lg:py-[48px]"
+      >
+        <div
+          class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 rounded-[28px] border border-[#d1e7da] bg-[#e8f3ed] p-6 lg:px-[36px]"
+        >
+          <div class="flex items-center gap-5">
+            <span
+              class="grid place-items-center size-[64px] shrink-0 rounded-[16px] bg-[#78a893] text-white text-[26px]"
+              aria-hidden="true"
+              >📄</span
+            >
+            <div>
+              <h2 class="font-bold text-[#0f2a1a] text-[24px] leading-[32px]">
+                Looking for guidance on your next step?
+              </h2>
+              <p class="text-[#475569] text-[18px] leading-[27px]">
+                Explore support options or speak with our intake team about what
+                may suit your needs.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 font-bold text-[18px]">
+            <a
+              href="index.html#services"
+              class="inline-flex items-center gap-2 rounded-full bg-[#363f55] px-7 py-4 text-white hover:brightness-125 transition"
+              >Explore Our Services <span aria-hidden="true">→</span></a
+            >
+            <a
+              href="contact.html"
+              class="inline-flex items-center gap-2 rounded-full border border-[#d1e7da] bg-white px-7 py-4 text-[#0f2a1a] hover:bg-[#f0f3ff] transition"
+              >Contact Our Team <span aria-hidden="true">→</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="bg-[#112417] border-t-[1.125px] border-[#022c22] pt-12 lg:pt-[73.125px] pb-[17px]"
+    >
+      <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[36px] pb-[54px]"
+        >
+          <div class="lg:col-span-2 flex flex-col">
+            <a
+              href="index.html#top"
+              class="flex items-center gap-[13.5px] w-fit"
+              aria-label="Back to top"
+            >
+              <img
+                src="assets/logo.webp"
+                width="43"
+                height="43"
+                alt="Team Allied Health logo"
+                class="size-[43px] object-cover"
+              />
+              <span class="font-bold text-[22.5px] leading-[31.5px] text-white">
+                Team Allied Health
+              </span>
+            </a>
+            <p
+              class="mt-[18px] max-w-[504px] text-[15.75px] leading-[25.594px] text-[rgba(209,250,229,0.8)]"
+            >
+              Compassionate, multidisciplinary clinical support empowering
+              children, youth, and families across metropolitan Melbourne and
+              nationwide through specialized Telehealth services.
+            </p>
+            <ul
+              class="mt-8 lg:mt-[70px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(167,243,208,0.9)]"
+            >
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-mail-amber.svg"
+                  width="14.4"
+                  height="10.8"
+                  alt=""
+                /><a
+                  href="mailto:info@teamalliedhealth.com.au"
+                  class="hover:text-white"
+                  >info@teamalliedhealth.com.au</a
+                >
+              </li>
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-phone-amber.svg"
+                  width="12.605"
+                  height="12.586"
+                  alt=""
+                /><a href="tel:+61412345678" class="hover:text-white"
+                  >+61 412 345 678</a
+                >
+              </li>
+              <li class="flex items-center gap-[9px]">
+                <img
+                  src="assets/icon-clock-amber.svg"
+                  width="14.4"
+                  height="14.4"
+                  alt=""
+                />Mon - Fri: 8:30 AM - 5:30 PM AEST/AEDT
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              class="font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#fcd34d]"
+            >
+              CLINICAL MODALITIES
+            </p>
+            <ul
+              class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
+            >
+              <li>
+                <a href="early-intervention.html" class="hover:text-white"
+                  >🧸 Early Intervention</a
+                >
+              </li>
+              <li>
+                <a href="speech-therapy.html" class="hover:text-white"
+                  >💬 Speech Therapy</a
+                >
+              </li>
+              <li>
+                <a href="occupational-therapy.html" class="hover:text-white"
+                  >🎨 Occupational Therapy</a
+                >
+              </li>
+              <li>
+                <a href="psychology.html" class="hover:text-white"
+                  >🧠 Psychology &amp; Wellbeing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="positive-behaviour-support.html"
+                  class="hover:text-white"
+                  >🤝 Behaviour Support</a
+                >
+              </li>
+              <li>
+                <a href="physiotherapy.html" class="hover:text-white"
+                  >🏃 Physiotherapy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#allied-health-assistants"
+                  class="hover:text-white"
+                  >⭐ Allied Health Assistants</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p
+              class="font-bold text-[13.5px] leading-[18px] tracking-[0.675px] uppercase text-[#fcd34d]"
+            >
+              QUICK LINKS
+            </p>
+            <ul
+              class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
+            >
+              <li>
+                <a href="index.html#top" class="hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-white">About Us</a>
+              </li>
+              <li>
+                <a href="services.html" class="hover:text-white">Services</a>
+              </li>
+              <li>
+                <a href="who-we-help.html" class="hover:text-white"
+                  >Who We Help</a
+                >
+              </li>
+              <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
+              <li>
+                <a href="index.html#coverage" class="hover:text-white"
+                  >Service Areas &amp; Suburbs</a
+                >
+              </li>
+              <li>
+                <a href="index.html#referral" class="hover:text-white"
+                  >For Referrers (GPs &amp; Coordinators)</a
+                >
+              </li>
+              <li>
+                <a href="index.html#referral" class="hover:text-white"
+                  >Submit Secure Referral</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-white">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-[8px] flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[13.5px] leading-[18px] text-[rgba(167,243,208,0.6)]"
+        >
+          <p>
+            © 2026 Team Allied Health Australia Pty Ltd. All rights reserved.
+          </p>
+          <nav class="flex flex-wrap gap-x-[27px] gap-y-2" aria-label="Legal">
+            <a href="privacy-policy.html" class="hover:text-white"
+              >Privacy Policy</a
+            >
+            <a href="terms-of-service.html" class="hover:text-white"
+              >Terms of Service</a
+            >
+            <a href="participant-charter.html" class="hover:text-white"
+              >Participant Charter</a
+            >
+            <a href="terms-of-service.html#feedback" class="hover:text-white"
+              >Feedback &amp; Complaints</a
+            >
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll("header details nav a").forEach((a) =>
+        a.addEventListener("click", () => {
+          a.closest("details").open = false;
+        }),
+      );
+      // category chips + search filter the cards in place
+      const q = document.getElementById("blog-search");
+      const chips = [...document.querySelectorAll("#blog-chips button")];
+      const cards = [...document.querySelectorAll("#blog-grid article")];
+      let cat = "";
+      function apply() {
+        const t = q.value.trim().toLowerCase();
+        let n = 0;
+        cards.forEach((c) => {
+          const ok =
+            (!cat || c.dataset.cat === cat) &&
+            (!t || c.textContent.toLowerCase().includes(t));
+          c.hidden = !ok;
+          n += ok;
+        });
+        document.getElementById("blog-empty").classList.toggle("hidden", n > 0);
+      }
+      q.addEventListener("input", apply);
+      chips.forEach((b) =>
+        b.addEventListener("click", () => {
+          cat = b.dataset.cat;
+          chips.forEach((x) => (x.dataset.on = x === b));
+          apply();
+        }),
+      );
+    </script>
+    <script>
+      // mobile menu: animate closing too (native <details> closes instantly)
+      (() => {
+        const menu = document.querySelector("header details");
+        if (!menu) return;
+        const nav = menu.querySelector("nav");
+        let closing = false;
+        menu.querySelector("summary").addEventListener("click", (e) => {
+          if (
+            !menu.open ||
+            matchMedia("(prefers-reduced-motion: reduce)").matches
+          )
+            return;
+          e.preventDefault();
+          if (closing) return;
+          closing = true;
+          const done = () => {
+            if (closing) {
+              menu.open = false;
+              closing = false;
+            }
+          };
+          nav.animate(
+            [
+              { opacity: 1, transform: "none" },
+              { opacity: 0, transform: "translateY(-8px) scale(0.97)" },
+            ],
+            { duration: 200, easing: "ease-in" },
+          ).onfinish = done;
+          setTimeout(done, 260); // fallback if the animation is throttled (background tab)
+        });
+      })();
+    </script>
+    <script>
+      // mobile menu: collapse / expand the Services submenu
+      document.querySelectorAll("[data-submenu-toggle]").forEach((b) =>
+        b.addEventListener("click", () => {
+          const open = b.getAttribute("aria-expanded") === "true";
+          b.setAttribute("aria-expanded", !open);
+          document
+            .getElementById("services-submenu")
+            .classList.toggle("hidden", open);
+          b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
+        }),
+      );
+    </script>
+  </body>
+</html>
