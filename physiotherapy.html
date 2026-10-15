@@ -59,23 +59,86 @@
       .faq-chevron {
         transition: transform 0.35s ease;
       }
-      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
-      .legal p + p { margin-top: 14px; }
-      .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
-      .legal a { color: #006781; font-weight: 700; }
-      .legal a:hover { text-decoration: underline; }
-      .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
-      .wedge { cursor: pointer; outline: none; transition: transform .25s ease, filter .25s ease; }
-      .wedge:hover, .wedge:focus-visible { transform: translate(var(--tx), var(--ty)); filter: url(#wedge-shadow); }
-      @media (prefers-reduced-motion: reduce) { .wedge { transition: none; } }
+      .legal p,
+      .legal li {
+        font-size: 17px;
+        line-height: 29px;
+        color: #334155;
+      }
+      .legal p + p {
+        margin-top: 14px;
+      }
+      .legal ul {
+        list-style: disc;
+        padding-left: 22px;
+        margin: 12px 0;
+        display: grid;
+        gap: 6px;
+      }
+      .legal a {
+        color: #006781;
+        font-weight: 700;
+      }
+      .legal a:hover {
+        text-decoration: underline;
+      }
+      .legal h3 {
+        margin: 22px 0 8px;
+        font-weight: 700;
+        font-size: 18.5px;
+        color: #004719;
+      }
+      .wedge {
+        cursor: pointer;
+        outline: none;
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+      .wedge:hover,
+      .wedge:focus-visible {
+        transform: translate(var(--tx), var(--ty));
+        filter: url(#wedge-shadow);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wedge {
+          transition: none;
+        }
+      }
       /* mobile menu: fade/slide in instead of popping open */
-      @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.97); } to { opacity: 1; transform: none; } }
-      header details[open] > nav { transform-origin: top right; animation: menu-in 0.2s ease-out; }
-      @media (prefers-reduced-motion: reduce) { header details[open] > nav { animation: none; } }
+      @keyframes menu-in {
+        from {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      header details[open] > nav {
+        transform-origin: top right;
+        animation: menu-in 0.2s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        header details[open] > nav {
+          animation: none;
+        }
+      }
       /* selects: custom chevron with breathing room from the edge */
-      select.select-chevron { -webkit-appearance: none; appearance: none; padding-right: 48px; background-repeat: no-repeat; background-position: right 18px center; background-size: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); }
+      select.select-chevron {
+        -webkit-appearance: none;
+        appearance: none;
+        padding-right: 48px;
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        background-size: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      }
       /* base text size inside page content (matches the 18px text step) */
-      main { font-size: 18px; }
+      main {
+        font-size: 18px;
+      }
     </style>
   </head>
   <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
@@ -145,7 +208,8 @@
               >Home</a
             >
             <a
-              href="services.html" aria-current="page"
+              href="services.html"
+              aria-current="page"
               class="rounded-[9px] px-[9px] py-[4.5px] transition-colors bg-[#e7eeff] text-[#004719]"
               >Services</a
             >
@@ -214,18 +278,71 @@
                   class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Home</a
                 >
-                <div class="flex items-center gap-1"><a
-                  href="services.html" aria-current="page"
-                  class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
-                  >Services</a
-                ><button type="button" data-submenu-toggle aria-expanded="false" aria-controls="services-submenu" aria-label="Toggle services menu" class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"><svg class="size-4 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 24 24" fill="none" stroke="#004719" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button></div>
-                <div class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden" id="services-submenu" data-submenu>
-                    <a href="occupational-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Occupational Therapy</a>
-                    <a href="speech-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Speech Therapy</a>
-                    <a href="physiotherapy.html" aria-current="page" class="block px-3 py-2 rounded-[9px] text-[14.5px] bg-[#e7eeff] text-[#004719]">Physiotherapy</a>
-                    <a href="psychology.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Psychology</a>
-                    <a href="positive-behaviour-support.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Positive Behaviour Support</a>
-                    <a href="early-intervention.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Early Intervention</a>
+                <div class="flex items-center gap-1">
+                  <a
+                    href="services.html"
+                    aria-current="page"
+                    class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
+                    >Services</a
+                  ><button
+                    type="button"
+                    data-submenu-toggle
+                    aria-expanded="false"
+                    aria-controls="services-submenu"
+                    aria-label="Toggle services menu"
+                    class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >
+                    <svg
+                      class="size-4 transition-transform"
+                      style="transform: rotate(-90deg)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#004719"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden"
+                  id="services-submenu"
+                  data-submenu
+                >
+                  <a
+                    href="occupational-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Occupational Therapy</a
+                  >
+                  <a
+                    href="speech-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Speech Therapy</a
+                  >
+                  <a
+                    href="physiotherapy.html"
+                    aria-current="page"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] bg-[#e7eeff] text-[#004719]"
+                    >Physiotherapy</a
+                  >
+                  <a
+                    href="psychology.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Psychology</a
+                  >
+                  <a
+                    href="positive-behaviour-support.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Positive Behaviour Support</a
+                  >
+                  <a
+                    href="early-intervention.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Early Intervention</a
+                  >
                 </div>
                 <a
                   href="who-we-help.html"
@@ -260,79 +377,570 @@
       </div>
     </header>
 
-
     <main>
-      <section class="relative isolate overflow-hidden bg-[#1a602b] min-h-[480px] lg:min-h-[590px] flex items-center">
-        <img src="assets/svc-physio.webp" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/65 via-[#0b2e14]/25 to-transparent"></div>
+      <section
+        class="relative isolate overflow-hidden bg-[#1a602b] min-h-[480px] lg:min-h-[590px] flex items-center"
+      >
+        <img
+          src="assets/services/pages/physiotherapybg.webp"
+          alt=""
+          class="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/65 via-[#0b2e14]/25 to-transparent"
+        ></div>
         <div class="max-w-[1440px] w-full mx-auto px-4 lg:px-[54px] py-[56px]">
-          <nav aria-label="Breadcrumb" class="mb-4 text-[18px] font-bold text-white/90"><a href="services.html" class="hover:underline">Services</a> <span class="mx-1">/</span> Physiotherapy</nav>
-          <h1 class="max-w-[820px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[70px] tracking-[-1.5px]">Move better, live stronger</h1>
-          <p class="mt-6 max-w-[760px] text-[18px] leading-[27px] lg:text-[26px] lg:leading-[31.5px] text-white">Our physiotherapists help people of all ages improve mobility, manage pain, and regain strength and independence.</p>
+          <nav
+            aria-label="Breadcrumb"
+            class="mb-4 text-[18px] font-bold text-white/90"
+          >
+            <a href="services.html" class="hover:underline">Services</a>
+            <span class="mx-1">/</span> Physiotherapy
+          </nav>
+          <h1
+            class="max-w-[820px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[70px] tracking-[-1.5px]"
+          >
+            Move better, live stronger
+          </h1>
+          <p
+            class="mt-6 max-w-[760px] text-[18px] leading-[27px] lg:text-[26px] lg:leading-[31.5px] text-white"
+          >
+            Our physiotherapists help people of all ages improve mobility,
+            manage pain, and regain strength and independence.
+          </p>
           <div class="mt-8 flex flex-wrap gap-4 font-bold text-[18px]">
-            <a href="#enquire" class="inline-flex items-center gap-3 rounded-full bg-[#0f3a5c] px-8 py-4 text-white hover:brightness-125 transition">Book An Appointment <span aria-hidden="true">→</span></a>
-            <a href="#process" class="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-8 py-4 text-white hover:bg-white/25 transition">Learn More</a>
+            <a
+              href="#enquire"
+              class="inline-flex items-center gap-3 rounded-full bg-[#0f3a5c] px-8 py-4 text-white hover:brightness-125 transition"
+              >Book An Appointment <span aria-hidden="true">→</span></a
+            >
+            <a
+              href="#process"
+              class="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-8 py-4 text-white hover:bg-white/25 transition"
+              >Learn More</a
+            >
           </div>
         </div>
       </section>
 
-      <section class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-[60px] items-center">
+      <section
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-[60px] items-center"
+        >
           <div>
-            <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">What is physiotherapy?</h2>
-            <p class="mt-6 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]">Physiotherapy supports people to recover from injuries, manage pain, improve mobility and prevent future issues at any age or stage of life.</p>
-            <div class="mt-10 flex items-center gap-4 rounded-[20px] border border-[#d1e7da] bg-[#eaf4ee] p-5"><span class="grid place-items-center size-12 shrink-0 rounded-[12px] bg-white text-[18px]" aria-hidden="true">♡</span><div><p class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Stronger movement.</p><p class="text-[#475569] text-[18px] leading-[27px]">More active, independent lives.</p></div></div>
+            <h2
+              class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+            >
+              What is physiotherapy?
+            </h2>
+            <p
+              class="mt-6 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]"
+            >
+              Physiotherapy supports people to recover from injuries, manage
+              pain, improve mobility and prevent future issues at any age or
+              stage of life.
+            </p>
+            <div
+              class="mt-10 flex items-center gap-4 rounded-[20px] border border-[#d1e7da] bg-[#eaf4ee] p-5"
+            >
+              <span
+                class="grid place-items-center size-12 shrink-0 rounded-[12px] bg-white text-[18px]"
+                aria-hidden="true"
+                >♡</span
+              >
+              <div>
+                <p class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+                  Stronger movement.
+                </p>
+                <p class="text-[#475569] text-[18px] leading-[27px]">
+                  More active, independent lives.
+                </p>
+              </div>
+            </div>
           </div>
           <div>
-            <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Areas we support</h3>
-            <ul class="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4"><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#d1fae5" aria-hidden="true">⚡</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Injury<br />Rehabilitation</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#d1fae5" aria-hidden="true">🏋️</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Strength<br />&amp; Conditioning</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#fee2e2" aria-hidden="true">✚</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Back, Neck<br />&amp; Joint Pain</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#fee2e2" aria-hidden="true">🧍</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Posture<br />&amp; Movement</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#d1fae5" aria-hidden="true">🛡️</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Balance<br />&amp; Fall Prevention</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[46px] rounded-full text-[18px]" style="background:#d1fae5" aria-hidden="true">♡</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]">Chronic Condition<br />Management</span></li></ul>
+            <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+              Areas we support
+            </h3>
+            <ul class="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #d1fae5"
+                  aria-hidden="true"
+                  >⚡</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Injury<br />Rehabilitation</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #d1fae5"
+                  aria-hidden="true"
+                  >🏋️</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Strength<br />&amp; Conditioning</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #fee2e2"
+                  aria-hidden="true"
+                  >✚</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Back, Neck<br />&amp; Joint Pain</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #fee2e2"
+                  aria-hidden="true"
+                  >🧍</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Posture<br />&amp; Movement</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #d1fae5"
+                  aria-hidden="true"
+                  >🛡️</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Balance<br />&amp; Fall Prevention</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[46px] rounded-full text-[18px]"
+                  style="background: #d1fae5"
+                  aria-hidden="true"
+                  >♡</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[24px]"
+                  >Chronic Condition<br />Management</span
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="bg-[#f0f3ff] py-10 lg:py-[56px]">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center"
+        >
           <div>
-            <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">How physiotherapy helps</h2>
-            <ul class="mt-8 grid sm:grid-cols-2 gap-4"><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="font-bold text-[18px] leading-[24px] text-[#0f172a]">Reduce pain and<br />improve function</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="font-bold text-[18px] leading-[24px] text-[#0f172a]">Restore movement<br />after injury or surgery</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="font-bold text-[18px] leading-[24px] text-[#0f172a]">Improve strength,<br />balance and mobility</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="font-bold text-[18px] leading-[24px] text-[#0f172a]">Support long-term<br />independence</span></li></ul>
+            <h2
+              class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+            >
+              How physiotherapy helps
+            </h2>
+            <ul class="mt-8 grid sm:grid-cols-2 gap-4">
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span
+                  class="font-bold text-[18px] leading-[24px] text-[#0f172a]"
+                  >Reduce pain and<br />improve function</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span
+                  class="font-bold text-[18px] leading-[24px] text-[#0f172a]"
+                  >Restore movement<br />after injury or surgery</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span
+                  class="font-bold text-[18px] leading-[24px] text-[#0f172a]"
+                  >Improve strength,<br />balance and mobility</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span
+                  class="font-bold text-[18px] leading-[24px] text-[#0f172a]"
+                  >Support long-term<br />independence</span
+                >
+              </li>
+            </ul>
           </div>
-          <img src="assets/svc-physio.webp" alt="Physiotherapist guiding a resistance exercise" class="h-[300px] lg:h-[360px] w-full rounded-[24px] object-cover shadow-[0_14px_24px_-10px_rgba(0,0,0,0.25)]" />
+          <img
+            src="assets/services/pages/physiotherapyfeature.webp"
+            alt="Physiotherapist guiding a resistance exercise"
+            class="h-[300px] lg:h-[360px] w-full rounded-[24px] object-cover shadow-[0_14px_24px_-10px_rgba(0,0,0,0.25)]"
+          />
         </div>
       </section>
 
-      <section id="process" class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
+      <section
+        id="process"
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
         <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
-          <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Our process</h2>
-          <ol class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]">01</span><h3 class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Understand Your Needs</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We learn about your current situation, goals and challenges.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]">02</span><h3 class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Create a Plan</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We set personalised, treatment goals together.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]">03</span><h3 class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Therapy Sessions</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">Hands-on treatment, exercise and education tailored to you.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]">04</span><h3 class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Track Progress</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We review and adjust your plan to help you achieve lasting results.</p></li></ol>
+          <h2
+            class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+          >
+            Our process
+          </h2>
+          <ol class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]"
+                >01</span
+              >
+              <h3
+                class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Understand Your Needs
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We learn about your current situation, goals and challenges.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]"
+                >02</span
+              >
+              <h3
+                class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Create a Plan
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We set personalised, treatment goals together.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]"
+                >03</span
+              >
+              <h3
+                class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Therapy Sessions
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                Hands-on treatment, exercise and education tailored to you.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="grid place-items-center size-9 rounded-full bg-[#0b3d24] text-white font-bold text-[18px]"
+                >04</span
+              >
+              <h3
+                class="mt-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Track Progress
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We review and adjust your plan to help you achieve lasting
+                results.
+              </p>
+            </li>
+          </ol>
         </div>
       </section>
 
       <section class="bg-[#f0f3ff] py-10 lg:py-[56px]">
         <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
-          <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Who can benefit?</h2>
-          <ul class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><li class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><img src="assets/svc-developmental.webp" alt="" class="h-[170px] w-full object-cover" /><div class="p-5"><h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Children</h3><p class="mt-1 text-[#475569] text-[18px] leading-[27px]">Support movement, coordination and participation in daily activities.</p></div></li><li class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><img src="assets/svc-occupational.webp" alt="" class="h-[170px] w-full object-cover" /><div class="p-5"><h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Young People</h3><p class="mt-1 text-[#475569] text-[18px] leading-[27px]">Recover from injuries, improve performance and stay active.</p></div></li><li class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><img src="assets/svc-physio.webp" alt="" class="h-[170px] w-full object-cover" /><div class="p-5"><h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Adults</h3><p class="mt-1 text-[#475569] text-[18px] leading-[27px]">Manage pain, improve mobility and maintain an active lifestyle.</p></div></li><li class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><img src="assets/gallery-family.webp" alt="" class="h-[170px] w-full object-cover" /><div class="p-5"><h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Older Adults</h3><p class="mt-1 text-[#475569] text-[18px] leading-[27px]">Maintain strength, balance and independence in everyday life.</p></div></li></ul>
+          <h2
+            class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+          >
+            Who can benefit?
+          </h2>
+          <ul class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <li
+              class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+            >
+              <img
+                src="assets/services/pages/physiotherapychild.webp"
+                alt=""
+                class="h-[170px] w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+                  Children
+                </h3>
+                <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">
+                  Support movement, coordination and participation in daily
+                  activities.
+                </p>
+              </div>
+            </li>
+            <li
+              class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+            >
+              <img
+                src="assets/services/pages/physiotherapyteenager.webp"
+                alt=""
+                class="h-[170px] w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+                  Young People
+                </h3>
+                <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">
+                  Recover from injuries, improve performance and stay active.
+                </p>
+              </div>
+            </li>
+            <li
+              class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+            >
+              <img
+                src="assets/services/pages/physiotherapyadult.webp"
+                alt=""
+                class="h-[170px] w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+                  Adults
+                </h3>
+                <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">
+                  Manage pain, improve mobility and maintain an active
+                  lifestyle.
+                </p>
+              </div>
+            </li>
+            <li
+              class="overflow-hidden rounded-[18px] bg-white shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+            >
+              <img
+                src="assets/services/pages/physiotherapysenior.webp"
+                alt=""
+                class="h-[170px] w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+                  Older Adults
+                </h3>
+                <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">
+                  Maintain strength, balance and independence in everyday life.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section id="enquire" class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1fr_1.9fr] gap-10 items-center">
+      <section
+        id="enquire"
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-[1fr_1.9fr] gap-10 items-center"
+        >
           <div>
-            <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Enquire about physiotherapy</h2>
-            <p class="mt-4 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]">Tell us a little about your situation and our team will be in touch to discuss the next steps.</p>
+            <h2
+              class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+            >
+              Enquire about physiotherapy
+            </h2>
+            <p
+              class="mt-4 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]"
+            >
+              Tell us a little about your situation and our team will be in
+              touch to discuss the next steps.
+            </p>
           </div>
-          <form id="physio-form" action="#" method="post" novalidate class="rounded-[28px] border border-[#1a602b] bg-white p-6 lg:p-8 grid gap-5 text-[18px]">
-            <fieldset><legend class="font-bold text-[#0f3d26] text-[18px]">I am enquiring for</legend><div class="mt-3 grid sm:grid-cols-3 gap-3"><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="Myself" checked class="size-4 accent-[#0b3d24]" />Myself</label><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="My Child"  class="size-4 accent-[#0b3d24]" />My Child</label><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="A Family Member"  class="size-4 accent-[#0b3d24]" />A Family Member</label></div></fieldset>
+          <form
+            id="physio-form"
+            action="#"
+            method="post"
+            novalidate
+            class="rounded-[28px] border border-[#1a602b] bg-white p-6 lg:p-8 grid gap-5 text-[18px]"
+          >
+            <fieldset>
+              <legend class="font-bold text-[#0f3d26] text-[18px]">
+                I am enquiring for
+              </legend>
+              <div class="mt-3 grid sm:grid-cols-3 gap-3">
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="Myself"
+                    checked
+                    class="size-4 accent-[#0b3d24]"
+                  />Myself</label
+                ><label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="My Child"
+                    class="size-4 accent-[#0b3d24]"
+                  />My Child</label
+                ><label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3.5 text-[18px] has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="A Family Member"
+                    class="size-4 accent-[#0b3d24]"
+                  />A Family Member</label
+                >
+              </div>
+            </fieldset>
             <div class="grid sm:grid-cols-2 gap-5">
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Full name *</span><input name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder="Your full name" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class="field-error">Please enter your full name.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Email address *</span><input name="email" type="email" required maxlength="150" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="yourname@email.com" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class="field-error">Please enter a valid email address.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Phone number *</span><input name="phone" type="tel" inputmode="tel" required autocomplete="tel" pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})" placeholder="e.g. 0412 345 678" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class="field-error">Please enter a valid Australian phone number.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Preferred area of support *</span><select name="focus" required class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"><option value="">Select an area</option><option>Injury Rehabilitation</option><option>Strength &amp; Conditioning</option><option>Back, Neck &amp; Joint Pain</option><option>Posture &amp; Movement</option><option>Balance &amp; Fall Prevention</option><option>Chronic Condition Management</option></select><span class="field-error">Please choose an area.</span></label>
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Full name *</span
+                ><input
+                  name="name"
+                  required
+                  minlength="2"
+                  maxlength="100"
+                  autocomplete="name"
+                  placeholder="Your full name"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter your full name.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Email address *</span
+                ><input
+                  name="email"
+                  type="email"
+                  required
+                  maxlength="150"
+                  autocomplete="email"
+                  pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+                  placeholder="yourname@email.com"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter a valid email address.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Phone number *</span
+                ><input
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  required
+                  autocomplete="tel"
+                  pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})"
+                  placeholder="e.g. 0412 345 678"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter a valid Australian phone number.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Preferred area of support *</span
+                ><select
+                  name="focus"
+                  required
+                  class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                >
+                  <option value="">Select an area</option>
+                  <option>Injury Rehabilitation</option>
+                  <option>Strength &amp; Conditioning</option>
+                  <option>Back, Neck &amp; Joint Pain</option>
+                  <option>Posture &amp; Movement</option>
+                  <option>Balance &amp; Fall Prevention</option>
+                  <option>Chronic Condition Management</option></select
+                ><span class="field-error">Please choose an area.</span></label
+              >
             </div>
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <button type="submit" class="inline-flex shrink-0 w-full sm:w-[300px] h-[56px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#1a602b] to-[#064e3b] px-6 font-bold text-[16px] text-white hover:brightness-110 active:scale-[0.99] transition">Submit enquiry <span aria-hidden="true">→</span></button>
-              <p class="text-[13px] text-[#64748b]">🔒 Your information is secure and kept confidential</p>
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <button
+                type="submit"
+                class="inline-flex shrink-0 w-full sm:w-[300px] h-[56px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#1a602b] to-[#064e3b] px-6 font-bold text-[16px] text-white hover:brightness-110 active:scale-[0.99] transition"
+              >
+                Submit enquiry <span aria-hidden="true">→</span>
+              </button>
+              <p class="text-[13px] text-[#64748b]">
+                🔒 Your information is secure and kept confidential
+              </p>
             </div>
-            <p id="physio-thanks" class="hidden rounded-[14px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]" role="status">Thanks — we’ve received your enquiry and will be in touch soon.</p>
+            <p
+              id="physio-thanks"
+              class="hidden rounded-[14px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]"
+              role="status"
+            >
+              Thanks — we’ve received your enquiry and will be in touch soon.
+            </p>
           </form>
         </div>
       </section>
@@ -387,7 +995,7 @@
                 class="w-[288px] h-[360px] p-[11.25px] bg-[#1a602b] border-[2.25px] border-[rgba(185,234,255,0.4)] rounded-t-full rounded-b-[27px] overflow-hidden shadow-[0_28.125px_56.25px_-13.5px_rgba(0,0,0,0.25)]"
               >
                 <img
-                  src="assets/cta-family.webp"
+                  src="assets/services/startyourjourney.webp"
                   alt="Smiling family engaged in collaborative therapy consultation"
                   loading="lazy"
                   class="size-full object-cover rounded-t-full rounded-b-[18px]"
@@ -398,12 +1006,6 @@
         </div>
       </section>
     </main>
-
-
-
-
-
-
 
     <!-- ===================== FOOTER ===================== -->
     <footer
@@ -502,7 +1104,9 @@
                 >
               </li>
               <li>
-                <a href="positive-behaviour-support.html" class="hover:text-white"
+                <a
+                  href="positive-behaviour-support.html"
+                  class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
@@ -512,7 +1116,9 @@
                 >
               </li>
               <li>
-                <a href="index.html#allied-health-assistants" class="hover:text-white"
+                <a
+                  href="index.html#allied-health-assistants"
+                  class="hover:text-white"
                   >⭐ Allied Health Assistants</a
                 >
               </li>
@@ -527,12 +1133,20 @@
             <ul
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
-              <li><a href="index.html#top" class="hover:text-white">Home</a></li>
+              <li>
+                <a href="index.html#top" class="hover:text-white">Home</a>
+              </li>
               <li>
                 <a href="about.html" class="hover:text-white">About Us</a>
               </li>
-              <li><a href="services.html" class="hover:text-white">Services</a></li>
-              <li><a href="who-we-help.html" class="hover:text-white">Who We Help</a></li>
+              <li>
+                <a href="services.html" class="hover:text-white">Services</a>
+              </li>
+              <li>
+                <a href="who-we-help.html" class="hover:text-white"
+                  >Who We Help</a
+                >
+              </li>
               <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
@@ -581,7 +1195,9 @@
 
     <script>
       document.querySelectorAll("header details nav a").forEach((a) =>
-        a.addEventListener("click", () => { a.closest("details").open = false; }),
+        a.addEventListener("click", () => {
+          a.closest("details").open = false;
+        }),
       );
     </script>
     <script>
@@ -589,7 +1205,9 @@
       const f = document.getElementById("physio-form");
       f.addEventListener("submit", (e) => {
         e.preventDefault();
-        f.querySelectorAll("input:not([type=radio]), textarea").forEach((x) => (x.value = x.value.trim()));
+        f.querySelectorAll("input:not([type=radio]), textarea").forEach(
+          (x) => (x.value = x.value.trim()),
+        );
         if (!f.checkValidity()) {
           f.classList.add("was-validated");
           f.querySelector(":invalid").focus();
@@ -606,7 +1224,9 @@
         b.addEventListener("click", () => {
           const open = b.getAttribute("aria-expanded") === "true";
           b.setAttribute("aria-expanded", !open);
-          document.getElementById("services-submenu").classList.toggle("hidden", open);
+          document
+            .getElementById("services-submenu")
+            .classList.toggle("hidden", open);
           b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
         }),
       );
@@ -619,13 +1239,25 @@
         const nav = menu.querySelector("nav");
         let closing = false;
         menu.querySelector("summary").addEventListener("click", (e) => {
-          if (!menu.open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (
+            !menu.open ||
+            matchMedia("(prefers-reduced-motion: reduce)").matches
+          )
+            return;
           e.preventDefault();
           if (closing) return;
           closing = true;
-          const done = () => { if (closing) { menu.open = false; closing = false; } };
+          const done = () => {
+            if (closing) {
+              menu.open = false;
+              closing = false;
+            }
+          };
           nav.animate(
-            [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px) scale(0.97)" }],
+            [
+              { opacity: 1, transform: "none" },
+              { opacity: 0, transform: "translateY(-8px) scale(0.97)" },
+            ],
             { duration: 200, easing: "ease-in" },
           ).onfinish = done;
           setTimeout(done, 260); // fallback if the animation is throttled (background tab)

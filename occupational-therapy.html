@@ -59,23 +59,86 @@
       .faq-chevron {
         transition: transform 0.35s ease;
       }
-      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
-      .legal p + p { margin-top: 14px; }
-      .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
-      .legal a { color: #006781; font-weight: 700; }
-      .legal a:hover { text-decoration: underline; }
-      .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
-      .wedge { cursor: pointer; outline: none; transition: transform .25s ease, filter .25s ease; }
-      .wedge:hover, .wedge:focus-visible { transform: translate(var(--tx), var(--ty)); filter: url(#wedge-shadow); }
-      @media (prefers-reduced-motion: reduce) { .wedge { transition: none; } }
+      .legal p,
+      .legal li {
+        font-size: 17px;
+        line-height: 29px;
+        color: #334155;
+      }
+      .legal p + p {
+        margin-top: 14px;
+      }
+      .legal ul {
+        list-style: disc;
+        padding-left: 22px;
+        margin: 12px 0;
+        display: grid;
+        gap: 6px;
+      }
+      .legal a {
+        color: #006781;
+        font-weight: 700;
+      }
+      .legal a:hover {
+        text-decoration: underline;
+      }
+      .legal h3 {
+        margin: 22px 0 8px;
+        font-weight: 700;
+        font-size: 18.5px;
+        color: #004719;
+      }
+      .wedge {
+        cursor: pointer;
+        outline: none;
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+      .wedge:hover,
+      .wedge:focus-visible {
+        transform: translate(var(--tx), var(--ty));
+        filter: url(#wedge-shadow);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wedge {
+          transition: none;
+        }
+      }
       /* mobile menu: fade/slide in instead of popping open */
-      @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.97); } to { opacity: 1; transform: none; } }
-      header details[open] > nav { transform-origin: top right; animation: menu-in 0.2s ease-out; }
-      @media (prefers-reduced-motion: reduce) { header details[open] > nav { animation: none; } }
+      @keyframes menu-in {
+        from {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      header details[open] > nav {
+        transform-origin: top right;
+        animation: menu-in 0.2s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        header details[open] > nav {
+          animation: none;
+        }
+      }
       /* selects: custom chevron with breathing room from the edge */
-      select.select-chevron { -webkit-appearance: none; appearance: none; padding-right: 48px; background-repeat: no-repeat; background-position: right 18px center; background-size: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); }
+      select.select-chevron {
+        -webkit-appearance: none;
+        appearance: none;
+        padding-right: 48px;
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        background-size: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      }
       /* base text size inside page content (matches the 18px text step) */
-      main { font-size: 18px; }
+      main {
+        font-size: 18px;
+      }
     </style>
   </head>
   <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
@@ -145,7 +208,8 @@
               >Home</a
             >
             <a
-              href="services.html" aria-current="page"
+              href="services.html"
+              aria-current="page"
               class="rounded-[9px] px-[9px] py-[4.5px] transition-colors bg-[#e7eeff] text-[#004719]"
               >Services</a
             >
@@ -214,18 +278,71 @@
                   class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Home</a
                 >
-                <div class="flex items-center gap-1"><a
-                  href="services.html" aria-current="page"
-                  class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
-                  >Services</a
-                ><button type="button" data-submenu-toggle aria-expanded="false" aria-controls="services-submenu" aria-label="Toggle services menu" class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"><svg class="size-4 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 24 24" fill="none" stroke="#004719" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button></div>
-                <div class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden" id="services-submenu" data-submenu>
-                    <a href="occupational-therapy.html" aria-current="page" class="block px-3 py-2 rounded-[9px] text-[14.5px] bg-[#e7eeff] text-[#004719]">Occupational Therapy</a>
-                    <a href="speech-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Speech Therapy</a>
-                    <a href="physiotherapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Physiotherapy</a>
-                    <a href="psychology.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Psychology</a>
-                    <a href="positive-behaviour-support.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Positive Behaviour Support</a>
-                    <a href="early-intervention.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Early Intervention</a>
+                <div class="flex items-center gap-1">
+                  <a
+                    href="services.html"
+                    aria-current="page"
+                    class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
+                    >Services</a
+                  ><button
+                    type="button"
+                    data-submenu-toggle
+                    aria-expanded="false"
+                    aria-controls="services-submenu"
+                    aria-label="Toggle services menu"
+                    class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >
+                    <svg
+                      class="size-4 transition-transform"
+                      style="transform: rotate(-90deg)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#004719"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden"
+                  id="services-submenu"
+                  data-submenu
+                >
+                  <a
+                    href="occupational-therapy.html"
+                    aria-current="page"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] bg-[#e7eeff] text-[#004719]"
+                    >Occupational Therapy</a
+                  >
+                  <a
+                    href="speech-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Speech Therapy</a
+                  >
+                  <a
+                    href="physiotherapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Physiotherapy</a
+                  >
+                  <a
+                    href="psychology.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Psychology</a
+                  >
+                  <a
+                    href="positive-behaviour-support.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Positive Behaviour Support</a
+                  >
+                  <a
+                    href="early-intervention.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Early Intervention</a
+                  >
                 </div>
                 <a
                   href="who-we-help.html"
@@ -260,74 +377,522 @@
       </div>
     </header>
 
-
     <main>
-      <section class="relative isolate overflow-hidden bg-[#1a602b] min-h-[460px] lg:min-h-[410px] flex items-center">
-        <img src="assets/svc-occupational.webp" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/60 via-[#0b2e14]/20 to-transparent"></div>
+      <section
+        class="relative isolate overflow-hidden bg-[#1a602b] min-h-[460px] lg:min-h-[410px] flex items-center"
+      >
+        <img
+          src="assets/services/pages/occupationalbg.webp"
+          alt=""
+          class="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/60 via-[#0b2e14]/20 to-transparent"
+        ></div>
         <div class="max-w-[1440px] w-full mx-auto px-4 lg:px-[54px] py-[56px]">
-          <nav aria-label="Breadcrumb" class="mb-4 text-[18px] font-bold text-white/90"><a href="services.html" class="hover:underline">Services</a> <span class="mx-1">/</span> Occupational Therapy</nav>
-          <h1 class="max-w-[820px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[70px] tracking-[-1.5px]">Greater independence in everyday life.</h1>
-          <p class="mt-6 max-w-[620px] text-[18px] leading-[28px] lg:text-[26px] lg:leading-[31.5px] text-white">Occupational therapy helps people of all ages build the skills and confidence to participate in the activities that matter most.</p>
+          <nav
+            aria-label="Breadcrumb"
+            class="mb-4 text-[18px] font-bold text-white/90"
+          >
+            <a href="services.html" class="hover:underline">Services</a>
+            <span class="mx-1">/</span> Occupational Therapy
+          </nav>
+          <h1
+            class="max-w-[820px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[70px] tracking-[-1.5px]"
+          >
+            Greater independence in everyday life.
+          </h1>
+          <p
+            class="mt-6 max-w-[620px] text-[18px] leading-[28px] lg:text-[26px] lg:leading-[31.5px] text-white"
+          >
+            Occupational therapy helps people of all ages build the skills and
+            confidence to participate in the activities that matter most.
+          </p>
           <div class="mt-8 flex flex-wrap gap-4 font-bold text-[18px]">
-            <a href="#enquire" class="inline-flex items-center gap-3 rounded-full bg-[#0b3d62] px-8 py-4 text-white hover:brightness-125 transition">Book An Appointment <span aria-hidden="true">→</span></a>
-            <a href="#process" class="inline-flex items-center rounded-full bg-white/25 border border-white/40 px-8 py-4 text-white hover:bg-white/35 transition">Learn More</a>
+            <a
+              href="#enquire"
+              class="inline-flex items-center gap-3 rounded-full bg-[#0b3d62] px-8 py-4 text-white hover:brightness-125 transition"
+              >Book An Appointment <span aria-hidden="true">→</span></a
+            >
+            <a
+              href="#process"
+              class="inline-flex items-center rounded-full bg-white/25 border border-white/40 px-8 py-4 text-white hover:bg-white/35 transition"
+              >Learn More</a
+            >
           </div>
         </div>
       </section>
 
-      <section class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-10 lg:gap-[60px] items-center">
+      <section
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-10 lg:gap-[60px] items-center"
+        >
           <div>
-            <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">What is occupational therapy?</h2>
-            <p class="mt-6 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]">Occupational therapy supports people to develop practical skills for daily life — at home, work, study and in the community. It can help with physical, cognitive, sensory or emotional challenges that impact independence and participation.</p>
-            <div class="mt-8 flex items-center gap-4 rounded-[16px] border border-[#d1e7da] bg-[#eaf4ee] p-4"><span class="grid place-items-center size-11 shrink-0 rounded-[12px] bg-white text-[18px]" aria-hidden="true">♡</span><div><p class="font-bold text-[#0f3d26] text-[18px] leading-[27px]">Practical support</p><p class="text-[#475569] text-[18px] leading-[27px]">More confident, independent living</p></div></div>
+            <h2
+              class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+            >
+              What is occupational therapy?
+            </h2>
+            <p
+              class="mt-6 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]"
+            >
+              Occupational therapy supports people to develop practical skills
+              for daily life — at home, work, study and in the community. It can
+              help with physical, cognitive, sensory or emotional challenges
+              that impact independence and participation.
+            </p>
+            <div
+              class="mt-8 flex items-center gap-4 rounded-[16px] border border-[#d1e7da] bg-[#eaf4ee] p-4"
+            >
+              <span
+                class="grid place-items-center size-11 shrink-0 rounded-[12px] bg-white text-[18px]"
+                aria-hidden="true"
+                >♡</span
+              >
+              <div>
+                <p class="font-bold text-[#0f3d26] text-[18px] leading-[27px]">
+                  Practical support
+                </p>
+                <p class="text-[#475569] text-[18px] leading-[27px]">
+                  More confident, independent living
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="rounded-[28px] border border-[#d1e7da] bg-[#f1f7f3]/80 p-6 lg:p-8">
-            <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">Areas we support</h3>
-            <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4"><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#dcfce7" aria-hidden="true">🏠</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Daily Living<br />Skills</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#dbeafe" aria-hidden="true">🏃</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Motor Skills<br />&amp; Coordination</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#ffedd5" aria-hidden="true">⚙️</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Sensory<br />Processing</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#f3e8ff" aria-hidden="true">💼</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Work &amp; Study<br />Participation</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#fef9c3" aria-hidden="true">🧠</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Cognitive<br />Skills</span></li><li class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-[44px] rounded-full text-[18px]" style="background:#dcfce7" aria-hidden="true">👥</span><span class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]">Community<br />Participation</span></li></ul>
+          <div
+            class="rounded-[28px] border border-[#d1e7da] bg-[#f1f7f3]/80 p-6 lg:p-8"
+          >
+            <h3 class="font-bold text-[#0f3d26] text-[24px] leading-[32px]">
+              Areas we support
+            </h3>
+            <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #dcfce7"
+                  aria-hidden="true"
+                  >🏠</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Daily Living<br />Skills</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #dbeafe"
+                  aria-hidden="true"
+                  >🏃</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Motor Skills<br />&amp; Coordination</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #ffedd5"
+                  aria-hidden="true"
+                  >⚙️</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Sensory<br />Processing</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #f3e8ff"
+                  aria-hidden="true"
+                  >💼</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Work &amp; Study<br />Participation</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #fef9c3"
+                  aria-hidden="true"
+                  >🧠</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Cognitive<br />Skills</span
+                >
+              </li>
+              <li
+                class="flex flex-col items-center gap-3 rounded-[18px] bg-white px-4 py-6 text-center shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-[44px] rounded-full text-[18px]"
+                  style="background: #dcfce7"
+                  aria-hidden="true"
+                  >👥</span
+                ><span
+                  class="font-bold text-[#0f2a1a] text-[18px] leading-[27px]"
+                  >Community<br />Participation</span
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="bg-[#f4f4ff] py-10 lg:py-[56px]">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-10 items-center">
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-10 items-center"
+        >
           <div>
-            <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">How occupational therapy helps</h2>
-            <ul class="mt-8 grid sm:grid-cols-2 gap-4"><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="text-[18px] leading-[27px] text-[#0f172a]">Build functional skills for everyday tasks</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="text-[18px] leading-[27px] text-[#0f172a]">Improve confidence and independence</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="text-[18px] leading-[27px] text-[#0f172a]">Support return to work, study or hobbies</span></li><li class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"><span class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]" aria-hidden="true">✓</span><span class="text-[18px] leading-[27px] text-[#0f172a]">Adapt to life changes and new challenges</span></li></ul>
+            <h2
+              class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+            >
+              How occupational therapy helps
+            </h2>
+            <ul class="mt-8 grid sm:grid-cols-2 gap-4">
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span class="text-[18px] leading-[27px] text-[#0f172a]"
+                  >Build functional skills for everyday tasks</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span class="text-[18px] leading-[27px] text-[#0f172a]"
+                  >Improve confidence and independence</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span class="text-[18px] leading-[27px] text-[#0f172a]"
+                  >Support return to work, study or hobbies</span
+                >
+              </li>
+              <li
+                class="flex items-center gap-4 rounded-[16px] bg-white p-5 shadow-[0_6px_18px_-10px_rgba(15,23,42,0.2)]"
+              >
+                <span
+                  class="grid place-items-center size-8 shrink-0 rounded-full bg-[#0b3d24] text-white text-[18px]"
+                  aria-hidden="true"
+                  >✓</span
+                ><span class="text-[18px] leading-[27px] text-[#0f172a]"
+                  >Adapt to life changes and new challenges</span
+                >
+              </li>
+            </ul>
           </div>
-          <img src="assets/family-consult.webp" alt="Occupational therapist talking with a client" class="h-[280px] lg:h-[300px] w-full rounded-[20px] object-cover shadow-lg" />
+          <img
+            src="assets/services/pages/occupationalhelp.webp"
+            alt="Occupational therapist talking with a client"
+            class="h-[280px] lg:h-[300px] w-full rounded-[20px] object-cover shadow-lg"
+          />
         </div>
       </section>
 
-      <section id="process" class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
+      <section
+        id="process"
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
         <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
-          <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Our process</h2>
-          <ol class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]">01</span><h3 class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Understand Your Needs</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We learn about your situation, challenges and what you want to achieve.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]">02</span><h3 class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Create a Plan</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We set personalised, practical goals together.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]">03</span><h3 class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Therapy Sessions</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">Goal-focused sessions tailored to your needs.</p></li><li class="rounded-[20px] border border-[#1a602b] bg-white p-6"><span class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]">04</span><h3 class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]">Track Progress</h3><p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">We review and adjust supports as your needs evolve.</p></li></ol>
+          <h2
+            class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+          >
+            Our process
+          </h2>
+          <ol class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]"
+                >01</span
+              >
+              <h3
+                class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Understand Your Needs
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We learn about your situation, challenges and what you want to
+                achieve.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]"
+                >02</span
+              >
+              <h3
+                class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Create a Plan
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We set personalised, practical goals together.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]"
+                >03</span
+              >
+              <h3
+                class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Therapy Sessions
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                Goal-focused sessions tailored to your needs.
+              </p>
+            </li>
+            <li class="rounded-[20px] border border-[#1a602b] bg-white p-6">
+              <span
+                class="inline-block rounded bg-[#0b3d24] px-2 py-0.5 text-white font-bold text-[12px]"
+                >04</span
+              >
+              <h3
+                class="mt-3 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+              >
+                Track Progress
+              </h3>
+              <p class="mt-2 text-[#64748b] text-[18px] leading-[27px]">
+                We review and adjust supports as your needs evolve.
+              </p>
+            </li>
+          </ol>
         </div>
       </section>
 
       <section id="enquire" class="bg-[#f4f4ff] py-10 lg:py-[56px]">
         <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px]">
-          <h2 class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]">Enquire about occupational therapy</h2>
-          <p class="mt-3 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]">Tell us a little about what you're looking for. Our intake team will help you understand the next steps.</p>
-          <form id="ot-form" action="#" method="post" novalidate class="mx-auto mt-10 max-w-[820px] rounded-[28px] border border-[#1a602b] bg-white p-6 lg:p-10 grid gap-5 text-[18px]">
-            <fieldset><legend class="font-bold text-[#0f3d26] text-[18px]">I am enquiring for...</legend><div class="mt-3 grid sm:grid-cols-3 gap-3"><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="My Child" checked class="size-4 accent-[#0b3d24]" />My Child</label><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="Myself / Adult"  class="size-4 accent-[#0b3d24]" />Myself / Adult</label><label class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"><input type="radio" name="for" value="A TAC Patient"  class="size-4 accent-[#0b3d24]" />A TAC Patient</label></div></fieldset>
+          <h2
+            class="font-black text-[#1a602b] text-[30px] leading-[36px] lg:text-[42.5px] lg:leading-[48px] tracking-[-1px]"
+          >
+            Enquire about occupational therapy
+          </h2>
+          <p
+            class="mt-3 text-[#475569] text-[18px] leading-[27px] lg:text-[24px] lg:leading-[34px]"
+          >
+            Tell us a little about what you're looking for. Our intake team will
+            help you understand the next steps.
+          </p>
+          <form
+            id="ot-form"
+            action="#"
+            method="post"
+            novalidate
+            class="mx-auto mt-10 max-w-[820px] rounded-[28px] border border-[#1a602b] bg-white p-6 lg:p-10 grid gap-5 text-[18px]"
+          >
+            <fieldset>
+              <legend class="font-bold text-[#0f3d26] text-[18px]">
+                I am enquiring for...
+              </legend>
+              <div class="mt-3 grid sm:grid-cols-3 gap-3">
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="My Child"
+                    checked
+                    class="size-4 accent-[#0b3d24]"
+                  />My Child</label
+                ><label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="Myself / Adult"
+                    class="size-4 accent-[#0b3d24]"
+                  />Myself / Adult</label
+                ><label
+                  class="flex cursor-pointer items-center gap-3 rounded-[14px] border-[1.125px] border-[#d9e2dc] bg-[#f8fafc] px-4 py-3 has-[:checked]:border-[#0b3d24] has-[:checked]:bg-white"
+                  ><input
+                    type="radio"
+                    name="for"
+                    value="A TAC Patient"
+                    class="size-4 accent-[#0b3d24]"
+                  />A TAC Patient</label
+                >
+              </div>
+            </fieldset>
             <div class="grid sm:grid-cols-2 gap-5">
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Full name *</span><input name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder="Your full name" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class=field-error>Please enter your full name.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Parent / Caregiver name *</span><input name="guardian" required maxlength="100" placeholder="Parent or caregiver name" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class=field-error>Please enter a name.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Child's age / DOB *</span><input name="age" required maxlength="40" placeholder="e.g. 3 years or 12 Jan 2022" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class=field-error>Please enter an age or date of birth.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Email address *</span><input name="email" type="email" required maxlength="150" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="yourname@email.com" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class=field-error>Please enter a valid email address.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Phone number *</span><input name="phone" type="tel" inputmode="tel" required autocomplete="tel" pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})" placeholder="e.g. 0412 345 678" class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" /><span class=field-error>Please enter a valid Australian phone number.</span></label>
-              <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Primary area of support *</span><select name="focus" required class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"><option>Daily Living Skills</option><option>Motor Skills &amp; Coordination</option><option>Sensory Processing</option><option>Work &amp; Study Participation</option><option>Cognitive Skills</option><option>Community Participation</option></select></label>
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Full name *</span
+                ><input
+                  name="name"
+                  required
+                  minlength="2"
+                  maxlength="100"
+                  autocomplete="name"
+                  placeholder="Your full name"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter your full name.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Parent / Caregiver name *</span
+                ><input
+                  name="guardian"
+                  required
+                  maxlength="100"
+                  placeholder="Parent or caregiver name"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error">Please enter a name.</span></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Child's age / DOB *</span
+                ><input
+                  name="age"
+                  required
+                  maxlength="40"
+                  placeholder="e.g. 3 years or 12 Jan 2022"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter an age or date of birth.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Email address *</span
+                ><input
+                  name="email"
+                  type="email"
+                  required
+                  maxlength="150"
+                  autocomplete="email"
+                  pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+                  placeholder="yourname@email.com"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter a valid email address.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Phone number *</span
+                ><input
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  required
+                  autocomplete="tel"
+                  pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})"
+                  placeholder="e.g. 0412 345 678"
+                  class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                /><span class="field-error"
+                  >Please enter a valid Australian phone number.</span
+                ></label
+              >
+              <label class="grid gap-2"
+                ><span class="font-bold text-[#0f3d26] text-[18px]"
+                  >Primary area of support *</span
+                ><select
+                  name="focus"
+                  required
+                  class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                >
+                  <option>Daily Living Skills</option>
+                  <option>Motor Skills &amp; Coordination</option>
+                  <option>Sensory Processing</option>
+                  <option>Work &amp; Study Participation</option>
+                  <option>Cognitive Skills</option>
+                  <option>Community Participation</option>
+                </select></label
+              >
             </div>
-            <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Preferred delivery method *</span><select name="delivery" required class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"><option>Mobile (In-Home / School / Daycare)</option><option>Telehealth</option><option>In-person (clinic)</option></select></label>
-            <label class="grid gap-2"><span class="font-bold text-[#0f3d26] text-[18px]">Message or goals (Optional)</span><textarea name="message" rows="3" maxlength="2000" placeholder="Tell us a bit about your child's needs, goals or any specific questions..." class="min-h-[96px] w-full p-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition resize-y"></textarea></label>
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
-              <p class="text-[18px] text-[#64748b]">🔒 Your information is secure and will only be used to respond to your enquiry.</p>
-              <button type="submit" class="inline-flex shrink-0 w-full sm:w-[300px] h-[56px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#1a602b] to-[#064e3b] px-6 font-bold text-[16px] text-white hover:brightness-110 active:scale-[0.99] transition">Submit Enquiry &amp; Request Call <span aria-hidden="true">→</span></button>
+            <label class="grid gap-2"
+              ><span class="font-bold text-[#0f3d26] text-[18px]"
+                >Preferred delivery method *</span
+              ><select
+                name="delivery"
+                required
+                class="select-chevron h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+              >
+                <option>Mobile (In-Home / School / Daycare)</option>
+                <option>Telehealth</option>
+                <option>In-person (clinic)</option>
+              </select></label
+            >
+            <label class="grid gap-2"
+              ><span class="font-bold text-[#0f3d26] text-[18px]"
+                >Message or goals (Optional)</span
+              ><textarea
+                name="message"
+                rows="3"
+                maxlength="2000"
+                placeholder="Tell us a bit about your child's needs, goals or any specific questions..."
+                class="min-h-[96px] w-full p-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition resize-y"
+              ></textarea>
+            </label>
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2"
+            >
+              <p class="text-[18px] text-[#64748b]">
+                🔒 Your information is secure and will only be used to respond
+                to your enquiry.
+              </p>
+              <button
+                type="submit"
+                class="inline-flex shrink-0 w-full sm:w-[300px] h-[56px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#1a602b] to-[#064e3b] px-6 font-bold text-[16px] text-white hover:brightness-110 active:scale-[0.99] transition"
+              >
+                Submit Enquiry &amp; Request Call
+                <span aria-hidden="true">→</span>
+              </button>
             </div>
-            <p id="ot-thanks" class="hidden rounded-[14px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]" role="status">Thanks — we’ve received your enquiry and will respond within 24–48 business hours.</p>
+            <p
+              id="ot-thanks"
+              class="hidden rounded-[14px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]"
+              role="status"
+            >
+              Thanks — we’ve received your enquiry and will respond within 24–48
+              business hours.
+            </p>
           </form>
         </div>
       </section>
@@ -382,7 +947,7 @@
                 class="w-[288px] h-[360px] p-[11.25px] bg-[#1a602b] border-[2.25px] border-[rgba(185,234,255,0.4)] rounded-t-full rounded-b-[27px] overflow-hidden shadow-[0_28.125px_56.25px_-13.5px_rgba(0,0,0,0.25)]"
               >
                 <img
-                  src="assets/cta-family.webp"
+                  src="assets/services/startyourjourney.webp"
                   alt="Smiling family engaged in collaborative therapy consultation"
                   loading="lazy"
                   class="size-full object-cover rounded-t-full rounded-b-[18px]"
@@ -393,11 +958,6 @@
         </div>
       </section>
     </main>
-
-
-
-
-
 
     <!-- ===================== FOOTER ===================== -->
     <footer
@@ -496,7 +1056,9 @@
                 >
               </li>
               <li>
-                <a href="positive-behaviour-support.html" class="hover:text-white"
+                <a
+                  href="positive-behaviour-support.html"
+                  class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
@@ -506,7 +1068,9 @@
                 >
               </li>
               <li>
-                <a href="index.html#allied-health-assistants" class="hover:text-white"
+                <a
+                  href="index.html#allied-health-assistants"
+                  class="hover:text-white"
                   >⭐ Allied Health Assistants</a
                 >
               </li>
@@ -521,12 +1085,20 @@
             <ul
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
-              <li><a href="index.html#top" class="hover:text-white">Home</a></li>
+              <li>
+                <a href="index.html#top" class="hover:text-white">Home</a>
+              </li>
               <li>
                 <a href="about.html" class="hover:text-white">About Us</a>
               </li>
-              <li><a href="services.html" class="hover:text-white">Services</a></li>
-              <li><a href="who-we-help.html" class="hover:text-white">Who We Help</a></li>
+              <li>
+                <a href="services.html" class="hover:text-white">Services</a>
+              </li>
+              <li>
+                <a href="who-we-help.html" class="hover:text-white"
+                  >Who We Help</a
+                >
+              </li>
               <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
@@ -575,7 +1147,9 @@
 
     <script>
       document.querySelectorAll("header details nav a").forEach((a) =>
-        a.addEventListener("click", () => { a.closest("details").open = false; }),
+        a.addEventListener("click", () => {
+          a.closest("details").open = false;
+        }),
       );
     </script>
     <script>
@@ -583,7 +1157,9 @@
       const f = document.getElementById("ot-form");
       f.addEventListener("submit", (e) => {
         e.preventDefault();
-        f.querySelectorAll("input:not([type=radio]), textarea").forEach((x) => (x.value = x.value.trim()));
+        f.querySelectorAll("input:not([type=radio]), textarea").forEach(
+          (x) => (x.value = x.value.trim()),
+        );
         if (!f.checkValidity()) {
           f.classList.add("was-validated");
           f.querySelector(":invalid").focus();
@@ -600,7 +1176,9 @@
         b.addEventListener("click", () => {
           const open = b.getAttribute("aria-expanded") === "true";
           b.setAttribute("aria-expanded", !open);
-          document.getElementById("services-submenu").classList.toggle("hidden", open);
+          document
+            .getElementById("services-submenu")
+            .classList.toggle("hidden", open);
           b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
         }),
       );
@@ -613,13 +1191,25 @@
         const nav = menu.querySelector("nav");
         let closing = false;
         menu.querySelector("summary").addEventListener("click", (e) => {
-          if (!menu.open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (
+            !menu.open ||
+            matchMedia("(prefers-reduced-motion: reduce)").matches
+          )
+            return;
           e.preventDefault();
           if (closing) return;
           closing = true;
-          const done = () => { if (closing) { menu.open = false; closing = false; } };
+          const done = () => {
+            if (closing) {
+              menu.open = false;
+              closing = false;
+            }
+          };
           nav.animate(
-            [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px) scale(0.97)" }],
+            [
+              { opacity: 1, transform: "none" },
+              { opacity: 0, transform: "translateY(-8px) scale(0.97)" },
+            ],
             { duration: 200, easing: "ease-in" },
           ).onfinish = done;
           setTimeout(done, 260); // fallback if the animation is throttled (background tab)
