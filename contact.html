@@ -59,20 +59,69 @@
       .faq-chevron {
         transition: transform 0.35s ease;
       }
-      .legal p, .legal li { font-size: 17px; line-height: 29px; color: #334155; }
-      .legal p + p { margin-top: 14px; }
-      .legal ul { list-style: disc; padding-left: 22px; margin: 12px 0; display: grid; gap: 6px; }
-      .legal a { color: #006781; font-weight: 700; }
-      .legal a:hover { text-decoration: underline; }
-      .legal h3 { margin: 22px 0 8px; font-weight: 700; font-size: 18.5px; color: #004719; }
+      .legal p,
+      .legal li {
+        font-size: 17px;
+        line-height: 29px;
+        color: #334155;
+      }
+      .legal p + p {
+        margin-top: 14px;
+      }
+      .legal ul {
+        list-style: disc;
+        padding-left: 22px;
+        margin: 12px 0;
+        display: grid;
+        gap: 6px;
+      }
+      .legal a {
+        color: #006781;
+        font-weight: 700;
+      }
+      .legal a:hover {
+        text-decoration: underline;
+      }
+      .legal h3 {
+        margin: 22px 0 8px;
+        font-weight: 700;
+        font-size: 18.5px;
+        color: #004719;
+      }
       /* mobile menu: fade/slide in instead of popping open */
-      @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.97); } to { opacity: 1; transform: none; } }
-      header details[open] > nav { transform-origin: top right; animation: menu-in 0.2s ease-out; }
-      @media (prefers-reduced-motion: reduce) { header details[open] > nav { animation: none; } }
+      @keyframes menu-in {
+        from {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      header details[open] > nav {
+        transform-origin: top right;
+        animation: menu-in 0.2s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        header details[open] > nav {
+          animation: none;
+        }
+      }
       /* selects: custom chevron with breathing room from the edge */
-      select.select-chevron { -webkit-appearance: none; appearance: none; padding-right: 48px; background-repeat: no-repeat; background-position: right 18px center; background-size: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); }
+      select.select-chevron {
+        -webkit-appearance: none;
+        appearance: none;
+        padding-right: 48px;
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        background-size: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004719' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      }
       /* base text size inside page content (matches the 18px text step) */
-      main { font-size: 18px; }
+      main {
+        font-size: 18px;
+      }
     </style>
   </head>
   <body id="top" class="font-sans text-[#0f172a] bg-white antialiased">
@@ -163,12 +212,8 @@
               >Blogs</a
             >
             <a
-              href="index.html#faqs"
-              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
-              >FAQs</a
-            >
-            <a
-              href="contact.html" aria-current="page"
+              href="contact.html"
+              aria-current="page"
               class="rounded-[9px] px-[9px] py-[4.5px] transition-colors bg-[#e7eeff] text-[#004719]"
               >Contact Us</a
             >
@@ -211,18 +256,69 @@
                   class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Home</a
                 >
-                <div class="flex items-center gap-1"><a
-                  href="services.html"
-                  class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
-                  >Services</a
-                ><button type="button" data-submenu-toggle aria-expanded="false" aria-controls="services-submenu" aria-label="Toggle services menu" class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"><svg class="size-4 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 24 24" fill="none" stroke="#004719" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button></div>
-                <div class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden" id="services-submenu" data-submenu>
-                    <a href="occupational-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Occupational Therapy</a>
-                    <a href="speech-therapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Speech Therapy</a>
-                    <a href="physiotherapy.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Physiotherapy</a>
-                    <a href="psychology.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Psychology</a>
-                    <a href="positive-behaviour-support.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Positive Behaviour Support</a>
-                    <a href="early-intervention.html" class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]">Early Intervention</a>
+                <div class="flex items-center gap-1">
+                  <a
+                    href="services.html"
+                    class="flex-1 px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Services</a
+                  ><button
+                    type="button"
+                    data-submenu-toggle
+                    aria-expanded="false"
+                    aria-controls="services-submenu"
+                    aria-label="Toggle services menu"
+                    class="grid place-items-center size-10 shrink-0 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                  >
+                    <svg
+                      class="size-4 transition-transform"
+                      style="transform: rotate(-90deg)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#004719"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="ml-4 -mt-1 flex flex-col border-l-2 border-[#e7eeff] pl-2 hidden"
+                  id="services-submenu"
+                  data-submenu
+                >
+                  <a
+                    href="occupational-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Occupational Therapy</a
+                  >
+                  <a
+                    href="speech-therapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Speech Therapy</a
+                  >
+                  <a
+                    href="physiotherapy.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Physiotherapy</a
+                  >
+                  <a
+                    href="psychology.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Psychology</a
+                  >
+                  <a
+                    href="positive-behaviour-support.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Positive Behaviour Support</a
+                  >
+                  <a
+                    href="early-intervention.html"
+                    class="block px-3 py-2 rounded-[9px] text-[14.5px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
+                    >Early Intervention</a
+                  >
                 </div>
                 <a
                   href="who-we-help.html"
@@ -241,12 +337,8 @@
                   >Blogs</a
                 >
                 <a
-                  href="index.html#faqs"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
-                  >FAQs</a
-                >
-                <a
-                  href="contact.html" aria-current="page"
+                  href="contact.html"
+                  aria-current="page"
                   class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]: bg-[#e7eeff] text-[#004719]"
                   >Contact Us</a
                 >
@@ -257,97 +349,329 @@
       </div>
     </header>
 
-
     <main>
       <!-- HERO -->
       <section class="relative isolate overflow-hidden bg-[#1a602b]">
-        <img src="assets/family-consult.webp" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/85 via-[#0b2e14]/55 to-transparent"></div>
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] py-[72px] lg:py-[150px]">
-          <h1 class="max-w-[760px] font-bold text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[68px] tracking-[-2px] text-white">Let’s work together for brighter tomorrows</h1>
-          <p class="mt-6 lg:mt-[72px] max-w-[740px] text-[18px] leading-[27px] lg:text-[26px] lg:leading-[31.5px] text-white">We’re here to answer your questions, discuss your needs, and help you take the next step. Reach out to our friendly team — we’d love to hear from you.</p>
+        <img
+          src="assets/contactus.webp"
+          alt=""
+          class="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/85 via-[#0b2e14]/55 to-transparent"
+        ></div>
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] py-[72px] lg:py-[150px]"
+        >
+          <h1
+            class="max-w-[760px] font-bold text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[68px] tracking-[-2px] text-white"
+          >
+            Let’s work together for brighter tomorrows
+          </h1>
+          <p
+            class="mt-6 lg:mt-[72px] max-w-[740px] text-[18px] leading-[27px] lg:text-[26px] lg:leading-[31.5px] text-white"
+          >
+            We’re here to answer your questions, discuss your needs, and help
+            you take the next step. Reach out to our friendly team — we’d love
+            to hear from you.
+          </p>
         </div>
       </section>
 
       <!-- INFO CARDS -->
       <section class="max-w-[1440px] mx-auto px-4 lg:px-[54px] py-6">
         <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <li class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6">
-            <span class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"><img src="assets/icon-phone-green.svg" width="18" height="18" alt="" /></span>
-            <div class="min-w-0"><p class="text-[18px] font-bold text-[#334155]">Call Us</p><a href="tel:0391234567" class="block text-[18px] font-bold text-[#0f2a1a] hover:underline">03 9123 4567</a><p class="text-[18px] text-[#64748b]">Mon – Fri, 9am – 5pm (AEST)</p></div>
+          <li
+            class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6"
+          >
+            <span
+              class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"
+              ><img
+                src="assets/icon-phone-green.svg"
+                width="18"
+                height="18"
+                alt=""
+            /></span>
+            <div class="min-w-0">
+              <p class="text-[18px] font-bold text-[#334155]">Call Us</p>
+              <a
+                href="tel:+61412345678"
+                class="block text-[18px] font-bold text-[#0f2a1a] hover:underline"
+                >+61 412 345 678</a
+              >
+              <p class="text-[18px] text-[#64748b]">
+                Mon - Fri: 9:00 AM - 5:00 PM AEST/AEDT
+              </p>
+            </div>
           </li>
-          <li class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6">
-            <span class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"><img src="assets/icon-mail-green.svg" width="18" height="14" alt="" /></span>
-            <div class="min-w-0"><p class="text-[18px] font-bold text-[#334155]">Email Us</p><a href="mailto:hello@teamalliedhealth.com.au" class="block text-[18px] font-bold text-[#0f2a1a] [overflow-wrap:anywhere] hover:underline">hello@teamalliedhealth.com.au</a><p class="text-[18px] text-[#64748b]">We aim to reply within 1–2 business days</p></div>
+          <li
+            class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6"
+          >
+            <span
+              class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"
+              ><img
+                src="assets/icon-mail-green.svg"
+                width="18"
+                height="14"
+                alt=""
+            /></span>
+            <div class="min-w-0">
+              <p class="text-[18px] font-bold text-[#334155]">Email Us</p>
+              <a
+                href="mailto:info@teamalliedhealth.com.au"
+                class="block text-[18px] font-bold text-[#0f2a1a] [overflow-wrap:anywhere] hover:underline"
+                >info@teamalliedhealth.com.au</a
+              >
+              <p class="text-[18px] text-[#64748b]">
+                We aim to reply within 1–2 business days
+              </p>
+            </div>
           </li>
-          <li class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6">
-            <span class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"><img src="assets/icon-pin.svg" width="16" height="20" alt="" /></span>
-            <div class="min-w-0"><p class="text-[18px] font-bold text-[#334155]">Our Location</p><p class="text-[18px] font-bold text-[#0f2a1a]">Melbourne, VIC</p><p class="text-[18px] text-[#64748b]">In-person appointments and Australia wide telehealth</p></div>
+          <li
+            class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6"
+          >
+            <span
+              class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"
+              ><img src="assets/icon-pin.svg" width="16" height="20" alt=""
+            /></span>
+            <div class="min-w-0">
+              <p class="text-[18px] font-bold text-[#334155]">Our Location</p>
+              <p class="text-[18px] font-bold text-[#0f2a1a]">Melbourne, VIC</p>
+              <p class="text-[18px] text-[#64748b]">
+                In-person appointments and Australia wide telehealth
+              </p>
+            </div>
           </li>
-          <li class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6">
-            <span class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"><img src="assets/icon-who-we-help.svg" width="20" height="16" alt="" /></span>
-            <div class="min-w-0"><p class="text-[18px] font-bold text-[#334155]">NDIS Registered</p><p class="text-[18px] font-bold text-[#0f2a1a]">Provider</p><p class="text-[18px] text-[#64748b]">Provider number: 4050037738</p></div>
+          <li
+            class="flex min-w-0 gap-4 rounded-[24px] border border-[#d1fae5] bg-[#f6fbf8] p-6"
+          >
+            <span
+              class="grid place-items-center size-[52px] shrink-0 rounded-full bg-[#d9eee3]"
+              ><img
+                src="assets/icon-who-we-help.svg"
+                width="20"
+                height="16"
+                alt=""
+            /></span>
+            <div class="min-w-0">
+              <p class="text-[18px] font-bold text-[#334155]">
+                NDIS Registered
+              </p>
+              <p class="text-[18px] font-bold text-[#0f2a1a]">Provider</p>
+              <p class="text-[18px] text-[#64748b]">
+                Provider number: 4050037738
+              </p>
+            </div>
           </li>
         </ul>
       </section>
 
       <!-- FORM + LOCATION -->
-      <section class="py-10 lg:py-[56px]" style="background-image: linear-gradient(140deg, rgba(255,251,235,0.8) 0%, rgba(236,253,245,0.9) 50%, rgba(240,249,255,0.8) 100%)">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-8 items-start">
-          <div class="rounded-[40px] bg-white border-t-[10px] border-t-[#10b981] p-6 lg:p-[54px] shadow-[0_22px_40px_-8px_rgba(0,0,0,0.12)]">
-            <h2 class="font-black text-[#004719] text-[24px] leading-[32px]">Send us a message</h2>
-            <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">Fill out the form below and our team will get back to you soon.</p>
-            <form id="contact-form" action="#" method="post" novalidate class="mt-6 flex flex-col gap-[22px] text-[18px]">
-              <label class="flex flex-col gap-[9px]"><span class="font-bold text-[#1e293b]">Participant Full Name *</span>
-                <input name="name" type="text" required autocomplete="name" minlength="2" maxlength="100" pattern="[A-Za-z][A-Za-z '\-\.]*[A-Za-z]" placeholder="e.g. Liam Henderson" class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" />
-                <span class="field-error">Please enter the participant’s full name (letters only).</span></label>
-              <label class="flex flex-col gap-[9px]"><span class="font-bold text-[#1e293b]">Email Address *</span>
-                <input name="email" type="email" required autocomplete="email" maxlength="150" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="contact@example.com.au" class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" />
-                <span class="field-error">Please enter a valid email address.</span></label>
-              <label class="flex flex-col gap-[9px]"><span class="font-bold text-[#1e293b]">Contact Phone Number *</span>
-                <input name="phone" type="tel" inputmode="tel" required autocomplete="tel" pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})" placeholder="0400 000 000" class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition" />
-                <span class="field-error">Please enter a valid Australian phone number, e.g. 0412 345 678.</span></label>
-              <label class="flex flex-col gap-[9px]"><span class="sr-only">How can we help?</span>
-                <select name="topic" class="select-chevron h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] text-[#475569] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition">
+      <section
+        class="py-10 lg:py-[56px]"
+        style="
+          background-image: linear-gradient(
+            140deg,
+            rgba(255, 251, 235, 0.8) 0%,
+            rgba(236, 253, 245, 0.9) 50%,
+            rgba(240, 249, 255, 0.8) 100%
+          );
+        "
+      >
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-8 items-start"
+        >
+          <div
+            id="send-message"
+            class="rounded-[40px] bg-white border-t-[10px] border-t-[#10b981] p-6 lg:p-[54px] shadow-[0_22px_40px_-8px_rgba(0,0,0,0.12)]"
+          >
+            <h2 class="font-black text-[#004719] text-[24px] leading-[32px]">
+              Send us a message
+            </h2>
+            <p class="mt-1 text-[#475569] text-[18px] leading-[27px]">
+              Fill out the form below and our team will get back to you soon.
+            </p>
+            <form
+              id="contact-form"
+              action="#"
+              method="post"
+              novalidate
+              class="mt-6 flex flex-col gap-[22px] text-[18px]"
+            >
+              <label class="flex flex-col gap-[9px]"
+                ><span class="font-bold text-[#1e293b]"
+                  >Participant Full Name *</span
+                >
+                <input
+                  name="name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  minlength="2"
+                  maxlength="100"
+                  pattern="[A-Za-z][A-Za-z '\-\.]*[A-Za-z]"
+                  placeholder="e.g. Liam Henderson"
+                  class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                />
+                <span class="field-error"
+                  >Please enter the participant’s full name (letters
+                  only).</span
+                ></label
+              >
+              <label class="flex flex-col gap-[9px]"
+                ><span class="font-bold text-[#1e293b]">Email Address *</span>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  maxlength="150"
+                  pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+                  placeholder="contact@example.com.au"
+                  class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                />
+                <span class="field-error"
+                  >Please enter a valid email address.</span
+                ></label
+              >
+              <label class="flex flex-col gap-[9px]"
+                ><span class="font-bold text-[#1e293b]"
+                  >Contact Phone Number *</span
+                >
+                <input
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  required
+                  autocomplete="tel"
+                  pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})"
+                  placeholder="0400 000 000"
+                  class="h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                />
+                <span class="field-error"
+                  >Please enter a valid Australian phone number, e.g. 0412 345
+                  678.</span
+                ></label
+              >
+              <label class="flex flex-col gap-[9px]"
+                ><span class="sr-only">How can we help?</span>
+                <select
+                  name="topic"
+                  class="select-chevron h-[54px] px-[19px] rounded-full bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] text-[#475569] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
+                >
                   <option value="">How can we help?</option>
                   <option>Make a referral</option>
                   <option>General enquiry</option>
                   <option>Funding and NDIS</option>
                   <option>Telehealth</option>
                   <option>Other</option>
-                </select></label>
-              <label class="flex flex-col gap-[9px]"><span class="font-bold text-[#1e293b]">Message / Reason for Referral *</span>
-                <textarea name="message" required rows="4" minlength="10" maxlength="2000" placeholder="Please outline primary goals, diagnoses, required disciplines (Early Intervention, OT, Speech, Physio, etc.)" class="min-h-[140px] px-[19px] pt-[16px] pb-4 leading-[24px] rounded-[26px] bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition resize-y"></textarea>
-                <span class="field-error">Please tell us a little more (at least 10 characters).</span></label>
+                </select></label
+              >
+              <label class="flex flex-col gap-[9px]"
+                ><span class="font-bold text-[#1e293b]"
+                  >Message / Reason for Referral *</span
+                >
+                <textarea
+                  name="message"
+                  required
+                  rows="4"
+                  minlength="10"
+                  maxlength="2000"
+                  placeholder="Please outline primary goals, diagnoses, required disciplines (Early Intervention, OT, Speech, Physio, etc.)"
+                  class="min-h-[140px] px-[19px] pt-[16px] pb-4 leading-[24px] rounded-[26px] bg-[#f8fafc] border-[1.125px] border-[#e2e8f0] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition resize-y"
+                ></textarea>
+                <span class="field-error"
+                  >Please tell us a little more (at least 10 characters).</span
+                ></label
+              >
               <div>
-                <button type="submit" class="inline-flex items-center gap-3 px-8 py-[18px] rounded-full bg-gradient-to-r from-[#047857] to-[#064e3b] text-white font-bold text-[16px] [filter:drop-shadow(0_6px_11px_rgba(26,96,43,0.3))] hover:brightness-110 active:scale-[0.99] transition">Send message <span aria-hidden="true">→</span></button>
+                <button
+                  type="submit"
+                  class="inline-flex items-center gap-3 px-8 py-[18px] rounded-full bg-gradient-to-r from-[#047857] to-[#064e3b] text-white font-bold text-[16px] [filter:drop-shadow(0_6px_11px_rgba(26,96,43,0.3))] hover:brightness-110 active:scale-[0.99] transition"
+                >
+                  Send message <span aria-hidden="true">→</span>
+                </button>
               </div>
-              <p id="contact-thanks" class="hidden rounded-[18px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]" role="status">Thanks — we’ve received your message and will be in touch soon.</p>
+              <p
+                id="contact-thanks"
+                class="hidden rounded-[18px] bg-[#d1fae5] p-4 font-bold text-[#064e3b]"
+                role="status"
+              >
+                Thanks — we’ve received your message and will be in touch soon.
+              </p>
             </form>
           </div>
 
           <div class="flex flex-col gap-7">
             <!-- ponytail: static placeholder, swap for a Google Maps embed iframe when a key/address is ready -->
-            <div class="relative h-[260px] lg:h-[400px] overflow-hidden rounded-[40px] border border-[#d9e4dc] bg-[#e4eee7]" role="img" aria-label="Map of Melbourne, VIC">
-              <div class="absolute left-[3%] bottom-0 w-[45%] h-[40%] bg-[#cfe0f3] rounded-tl-[40px]"></div>
-              <div class="absolute left-[5%] right-[6%] top-[20%] h-[3px] bg-[#f7d9a2]"></div>
-              <div class="absolute left-[2%] right-[2%] top-[62%] h-[3px] bg-[#f7d9a2]"></div>
-              <span class="absolute left-[12%] top-[14%] text-[12px] text-[#64748b]">Maribyrnong</span>
-              <span class="absolute left-[13%] top-[38%] text-[12px] text-[#64748b]">Footscray</span>
-              <span class="absolute left-[25%] top-[80%] text-[12px] text-[#64748b]">Port Melbourne</span>
-              <span class="absolute right-[8%] top-[78%] text-[12px] text-[#64748b]">Camberwell</span>
-              <div class="absolute right-[10%] top-[14%] flex items-center gap-3 rounded-[16px] bg-white px-4 py-3 shadow-lg">
-                <span class="grid place-items-center size-9 rounded-full bg-[#e6f4ec]"><img src="assets/icon-pin.svg" width="12" height="16" alt="" /></span>
-                <div><p class="font-bold text-[#004719] leading-[20px]">Team Allied Health</p><p class="text-[13px] text-[#64748b]">Melbourne, VIC</p></div>
+            <div
+              class="relative h-[260px] lg:h-[400px] overflow-hidden rounded-[40px] border border-[#d9e4dc] bg-[#e4eee7]"
+              role="img"
+              aria-label="Map of Melbourne, VIC"
+            >
+              <div
+                class="absolute left-[3%] bottom-0 w-[45%] h-[40%] bg-[#cfe0f3] rounded-tl-[40px]"
+              ></div>
+              <div
+                class="absolute left-[5%] right-[6%] top-[20%] h-[3px] bg-[#f7d9a2]"
+              ></div>
+              <div
+                class="absolute left-[2%] right-[2%] top-[62%] h-[3px] bg-[#f7d9a2]"
+              ></div>
+              <span
+                class="absolute left-[12%] top-[14%] text-[12px] text-[#64748b]"
+                >Maribyrnong</span
+              >
+              <span
+                class="absolute left-[13%] top-[38%] text-[12px] text-[#64748b]"
+                >Footscray</span
+              >
+              <span
+                class="absolute left-[25%] top-[80%] text-[12px] text-[#64748b]"
+                >Port Melbourne</span
+              >
+              <span
+                class="absolute right-[8%] top-[78%] text-[12px] text-[#64748b]"
+                >Camberwell</span
+              >
+              <div
+                class="absolute right-[10%] top-[14%] flex items-center gap-3 rounded-[16px] bg-white px-4 py-3 shadow-lg"
+              >
+                <span
+                  class="grid place-items-center size-9 rounded-full bg-[#e6f4ec]"
+                  ><img src="assets/icon-pin.svg" width="12" height="16" alt=""
+                /></span>
+                <div>
+                  <p class="font-bold text-[#004719] leading-[20px]">
+                    Team Allied Health
+                  </p>
+                  <p class="text-[13px] text-[#64748b]">Melbourne, VIC</p>
+                </div>
               </div>
             </div>
-            <div class="rounded-[40px] border-[1.5px] border-[#1a602b] bg-white/60 p-6 lg:p-[40px] flex gap-5">
-              <span class="grid place-items-center size-[52px] shrink-0 rounded-[14px] bg-[#d9eee3]"><img src="assets/icon-pin.svg" width="16" height="20" alt="" /></span>
+            <div
+              class="rounded-[40px] border-[1.5px] border-[#1a602b] bg-white/60 p-6 lg:p-[40px] flex gap-5"
+            >
+              <span
+                class="grid place-items-center size-[52px] shrink-0 rounded-[14px] bg-[#d9eee3]"
+                ><img src="assets/icon-pin.svg" width="16" height="20" alt=""
+              /></span>
               <div>
                 <p class="text-[18px] font-bold text-[#334155]">Our location</p>
-                <p class="text-[24px] leading-[30px] font-bold text-[#0f2a1a]">Melbourne, VIC</p>
-                <p class="mt-2 text-[18px] leading-[27px] text-[#475569]">We support clients across Melbourne and Australia through in-person and telehealth services.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Melbourne+VIC" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#1a602b] px-5 py-2.5 font-bold text-[#004719] hover:bg-[#d9eee3] transition-colors">Get directions <span aria-hidden="true">→</span></a>
+                <p class="text-[24px] leading-[30px] font-bold text-[#0f2a1a]">
+                  Melbourne, VIC
+                </p>
+                <p class="mt-2 text-[18px] leading-[27px] text-[#475569]">
+                  We support clients across Melbourne and Australia through
+                  in-person and telehealth services.
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Melbourne+VIC"
+                  target="_blank"
+                  rel="noopener"
+                  class="mt-4 inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#1a602b] px-5 py-2.5 font-bold text-[#004719] hover:bg-[#d9eee3] transition-colors"
+                  >Get directions <span aria-hidden="true">→</span></a
+                >
               </div>
             </div>
           </div>
@@ -356,25 +680,92 @@
 
       <!-- HOURS + CHAT -->
       <section class="bg-[#f0f3ff] py-10 lg:py-[56px]">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-8">
-          <div class="rounded-[48px] border border-[#a7f3d0] bg-gradient-to-br from-white to-[#f0fdf9] p-8 lg:p-[60px]">
-            <h2 class="flex items-center gap-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"><span class="grid place-items-center size-[52px] rounded-full bg-[#d9eee3]"><img src="assets/icon-clock.svg" width="22" height="22" alt="" /></span>Office hours</h2>
+        <div
+          class="max-w-[1440px] mx-auto px-4 lg:px-[54px] grid lg:grid-cols-2 gap-8"
+        >
+          <div
+            class="rounded-[48px] border border-[#a7f3d0] bg-gradient-to-br from-white to-[#f0fdf9] p-8 lg:p-[60px]"
+          >
+            <h2
+              class="flex items-center gap-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+            >
+              <span
+                class="grid place-items-center size-[52px] rounded-full bg-[#d9eee3]"
+                ><img
+                  src="assets/icon-clock.svg"
+                  width="22"
+                  height="22"
+                  alt="" /></span
+              >Office hours
+            </h2>
             <dl class="mt-8 text-[18px]">
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Monday</dt><dd class="font-bold">9:00am – 5:00pm</dd></div>
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Tuesday</dt><dd class="font-bold">9:00am – 5:00pm</dd></div>
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Wednesday</dt><dd class="font-bold">9:00am – 5:00pm</dd></div>
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Thursday</dt><dd class="font-bold">9:00am – 5:00pm</dd></div>
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Friday</dt><dd class="font-bold">9:00am – 5:00pm</dd></div>
-              <div class="flex justify-between border-b border-[#e2e8f0] py-3"><dt class="text-[#475569]">Saturday</dt><dd class="text-[#64748b]">Closed</dd></div>
-              <div class="flex justify-between py-3"><dt class="text-[#475569]">Sunday</dt><dd class="text-[#64748b]">Closed</dd></div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Monday</dt>
+                <dd class="font-bold">9:00am – 5:00pm</dd>
+              </div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Tuesday</dt>
+                <dd class="font-bold">9:00am – 5:00pm</dd>
+              </div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Wednesday</dt>
+                <dd class="font-bold">9:00am – 5:00pm</dd>
+              </div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Thursday</dt>
+                <dd class="font-bold">9:00am – 5:00pm</dd>
+              </div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Friday</dt>
+                <dd class="font-bold">9:00am – 5:00pm</dd>
+              </div>
+              <div class="flex justify-between border-b border-[#e2e8f0] py-3">
+                <dt class="text-[#475569]">Saturday</dt>
+                <dd class="text-[#64748b]">Closed</dd>
+              </div>
+              <div class="flex justify-between py-3">
+                <dt class="text-[#475569]">Sunday</dt>
+                <dd class="text-[#64748b]">Closed</dd>
+              </div>
             </dl>
           </div>
-          <div class="rounded-[48px] border border-[#a7f3d0] bg-gradient-to-br from-white to-[#f0fdf9] p-8 lg:p-[60px]">
-            <h2 class="flex items-center gap-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"><span class="grid place-items-center size-[52px] rounded-full bg-[#d9eee3] text-[24px]" aria-hidden="true">💬</span>Prefer to chat?</h2>
-            <p class="mt-6 max-w-[460px] text-[#475569] text-[18px] leading-[27px]">Not sure who to speak to? Give us a call and our team will help you find the right therapist or service for your needs.</p>
-            <div class="mt-8 flex flex-col items-start gap-3 font-bold text-[#004719]">
-              <a href="tel:0391234567" class="inline-flex items-center gap-2 rounded-full bg-[#d9eee3] px-8 py-3.5 hover:bg-[#c5e6d3] transition-colors">Call 03 9123 4567 <span aria-hidden="true">→</span></a>
-              <a href="index.html#referral" class="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#0f2a1a] px-8 py-3 hover:bg-white transition-colors">Make an Online Referral <span aria-hidden="true">→</span></a>
+          <div
+            class="rounded-[48px] border border-[#a7f3d0] bg-gradient-to-br from-white to-[#f0fdf9] p-8 lg:p-[60px]"
+          >
+            <h2
+              class="flex items-center gap-4 font-bold text-[#0f2a1a] text-[24px] leading-[32px]"
+            >
+              <span
+                class="grid place-items-center size-[52px] rounded-full bg-[#d9eee3] text-[24px]"
+                aria-hidden="true"
+                >💬</span
+              >Prefer to chat?
+            </h2>
+            <p
+              class="mt-6 max-w-[460px] text-[#475569] text-[18px] leading-[27px]"
+            >
+              Not sure who to speak to? Give us a call and our team will help
+              you find the right therapist or service for your needs.
+            </p>
+            <div
+              class="mt-8 flex flex-col items-start gap-3 font-bold text-[#004719]"
+            >
+              <a
+                href="tel:+61412345678"
+                aria-label="Call +61 412 345 678"
+                class="inline-flex items-center gap-2 rounded-full bg-[#d9eee3] px-8 py-3.5 hover:bg-[#c5e6d3] transition-colors"
+                ><img
+                  src="assets/icon-phone-green.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                />+61 412 345 678 <span aria-hidden="true">→</span></a
+              >
+              <a
+                href="index.html#referral"
+                class="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#0f2a1a] px-8 py-3 hover:bg-white transition-colors"
+                >Make an Online Referral <span aria-hidden="true">→</span></a
+              >
             </div>
           </div>
         </div>
@@ -420,7 +811,7 @@
                   >Refer a Participant</a
                 >
                 <a
-                  href="contact.html"
+                  href="contact.html#send-message"
                   class="whitespace-nowrap bg-white/15 hover:bg-white/25 transition-colors border-[1.125px] border-white/20 rounded-full px-6 py-3.5 sm:px-[37.125px] sm:py-[19.125px] font-bold text-[18px] sm:text-[18px] leading-[27px] text-white"
                   >Contact Our Intake Team</a
                 >
@@ -473,7 +864,7 @@
             >
               Compassionate, multidisciplinary clinical support empowering
               children, youth, and families across metropolitan Melbourne and
-              nationwide through specialized Telehealth services.
+              nationwide through specialised Telehealth services.
             </p>
             <ul
               class="mt-8 lg:mt-[70px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(167,243,208,0.9)]"
@@ -506,7 +897,7 @@
                   width="14.4"
                   height="14.4"
                   alt=""
-                />Mon - Fri: 8:30 AM - 5:30 PM AEST/AEDT
+                />Mon - Fri: 9:00 AM - 5:00 PM AEST/AEDT
               </li>
             </ul>
           </div>
@@ -540,7 +931,9 @@
                 >
               </li>
               <li>
-                <a href="positive-behaviour-support.html" class="hover:text-white"
+                <a
+                  href="positive-behaviour-support.html"
+                  class="hover:text-white"
                   >🤝 Behaviour Support</a
                 >
               </li>
@@ -550,7 +943,9 @@
                 >
               </li>
               <li>
-                <a href="index.html#allied-health-assistants" class="hover:text-white"
+                <a
+                  href="index.html#allied-health-assistants"
+                  class="hover:text-white"
                   >⭐ Allied Health Assistants</a
                 >
               </li>
@@ -565,12 +960,20 @@
             <ul
               class="mt-[13.5px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(209,250,229,0.8)]"
             >
-              <li><a href="index.html#top" class="hover:text-white">Home</a></li>
+              <li>
+                <a href="index.html#top" class="hover:text-white">Home</a>
+              </li>
               <li>
                 <a href="about.html" class="hover:text-white">About Us</a>
               </li>
-              <li><a href="services.html" class="hover:text-white">Services</a></li>
-              <li><a href="who-we-help.html" class="hover:text-white">Who We Help</a></li>
+              <li>
+                <a href="services.html" class="hover:text-white">Services</a>
+              </li>
+              <li>
+                <a href="who-we-help.html" class="hover:text-white"
+                  >Who We Help</a
+                >
+              </li>
               <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
               <li>
                 <a href="index.html#coverage" class="hover:text-white"
@@ -619,13 +1022,17 @@
 
     <script>
       document.querySelectorAll("header details nav a").forEach((a) =>
-        a.addEventListener("click", () => { a.closest("details").open = false; }),
+        a.addEventListener("click", () => {
+          a.closest("details").open = false;
+        }),
       );
       // ponytail: no backend yet; validates, then shows a thank-you. Wire action/fetch to the real endpoint.
       const f = document.getElementById("contact-form");
       f.addEventListener("submit", (e) => {
         e.preventDefault();
-        f.querySelectorAll("input, textarea").forEach((x) => (x.value = x.value.trim()));
+        f.querySelectorAll("input, textarea").forEach(
+          (x) => (x.value = x.value.trim()),
+        );
         if (!f.checkValidity()) {
           f.classList.add("was-validated");
           f.querySelector(":invalid").focus();
@@ -644,13 +1051,25 @@
         const nav = menu.querySelector("nav");
         let closing = false;
         menu.querySelector("summary").addEventListener("click", (e) => {
-          if (!menu.open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (
+            !menu.open ||
+            matchMedia("(prefers-reduced-motion: reduce)").matches
+          )
+            return;
           e.preventDefault();
           if (closing) return;
           closing = true;
-          const done = () => { if (closing) { menu.open = false; closing = false; } };
+          const done = () => {
+            if (closing) {
+              menu.open = false;
+              closing = false;
+            }
+          };
           nav.animate(
-            [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-8px) scale(0.97)" }],
+            [
+              { opacity: 1, transform: "none" },
+              { opacity: 0, transform: "translateY(-8px) scale(0.97)" },
+            ],
             { duration: 200, easing: "ease-in" },
           ).onfinish = done;
           setTimeout(done, 260); // fallback if the animation is throttled (background tab)
@@ -663,7 +1082,9 @@
         b.addEventListener("click", () => {
           const open = b.getAttribute("aria-expanded") === "true";
           b.setAttribute("aria-expanded", !open);
-          document.getElementById("services-submenu").classList.toggle("hidden", open);
+          document
+            .getElementById("services-submenu")
+            .classList.toggle("hidden", open);
           b.firstElementChild.style.transform = open ? "rotate(-90deg)" : "";
         }),
       );

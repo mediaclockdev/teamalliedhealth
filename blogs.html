@@ -23,6 +23,10 @@
       };
     </script>
     <style>
+      /* the blog filter sets [hidden]; keep it winning over Tailwind's flex */
+      [hidden] {
+        display: none !important;
+      }
       html {
         scroll-behavior: smooth;
         font-family: "Lato", sans-serif;
@@ -220,11 +224,6 @@
               >Blogs</a
             >
             <a
-              href="index.html#faqs"
-              class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
-              >FAQs</a
-            >
-            <a
               href="contact.html"
               class="rounded-[9px] px-[9px] py-[4.5px] hover:bg-[#e7eeff] hover:text-[#004719] transition-colors"
               >Contact Us</a
@@ -350,11 +349,6 @@
                   >Blogs</a
                 >
                 <a
-                  href="index.html#faqs"
-                  class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
-                  >FAQs</a
-                >
-                <a
                   href="contact.html"
                   class="px-3 py-2.5 rounded-[9px] [@media(hover:hover)]:hover:bg-[#e7eeff]"
                   >Contact Us</a
@@ -371,7 +365,7 @@
         class="relative isolate overflow-hidden bg-[#1a602b] min-h-[480px] lg:min-h-[610px] flex items-center"
       >
         <img
-          src="assets/gallery-family.webp"
+          src="assets/blogsbg.webp"
           alt=""
           class="absolute inset-0 -z-10 size-full object-cover"
         />
@@ -379,9 +373,6 @@
           class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2e14]/70 via-[#0b2e14]/35 to-transparent"
         ></div>
         <div class="max-w-[1440px] w-full mx-auto px-4 lg:px-[54px] py-[56px]">
-          <p class="font-bold text-[18px] tracking-[3px] uppercase text-white">
-            Blogs
-          </p>
           <h1
             class="mt-5 max-w-[900px] font-bold text-white text-[40px] leading-[44px] lg:text-[67.5px] lg:leading-[76px] tracking-[-2px]"
           >
@@ -690,9 +681,9 @@
               </p>
             </div>
           </div>
-          <div class="flex flex-wrap gap-3 font-bold text-[18px]">
+          <div class="flex flex-wrap lg:flex-nowrap lg:shrink-0 gap-3 font-bold text-[18px]">
             <a
-              href="index.html#services"
+              href="services.html"
               class="inline-flex items-center gap-2 rounded-full bg-[#363f55] px-7 py-4 text-white hover:brightness-125 transition"
               >Explore Our Services <span aria-hidden="true">→</span></a
             >
@@ -736,7 +727,7 @@
             >
               Compassionate, multidisciplinary clinical support empowering
               children, youth, and families across metropolitan Melbourne and
-              nationwide through specialized Telehealth services.
+              nationwide through specialised Telehealth services.
             </p>
             <ul
               class="mt-8 lg:mt-[70px] flex flex-col gap-[9px] text-[15.75px] leading-[22.5px] text-[rgba(167,243,208,0.9)]"
@@ -769,7 +760,7 @@
                   width="14.4"
                   height="14.4"
                   alt=""
-                />Mon - Fri: 8:30 AM - 5:30 PM AEST/AEDT
+                />Mon - Fri: 9:00 AM - 5:00 PM AEST/AEDT
               </li>
             </ul>
           </div>
