@@ -1226,7 +1226,7 @@
     <script>
       // ponytail: no backend yet; validates then shows a thank-you. Point action/fetch at the real endpoint.
       const f = document.getElementById("ei-form");
-      f.addEventListener("submit", (e) => {
+      f.addEventListener("submit", async (e) => {
         e.preventDefault();
         f.querySelectorAll("input:not([type=radio]), textarea").forEach(
           (x) => (x.value = x.value.trim()),
@@ -1236,6 +1236,7 @@
           f.querySelector(":invalid").focus();
           return;
         }
+        if (!(await sendForm(f))) return;
         f.reset();
         f.classList.remove("was-validated");
         document.getElementById("ei-thanks").classList.remove("hidden");
@@ -1287,5 +1288,6 @@
         });
       })();
     </script>
+    <script src="assets/forms.js"></script>
   </body>
 </html>

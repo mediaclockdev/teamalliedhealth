@@ -839,11 +839,11 @@
                   inputmode="tel"
                   required
                   autocomplete="tel"
-                  pattern="(?:(?:\+?61[\s\-]?|\(?0)[2-478]\)?(?:[\s\-]?\d){8}|1[38]00(?:[\s\-]?\d){6}|13(?:[\s\-]?\d){4})"
+                  pattern="[0-9+()\s\-]{8,20}"
                   placeholder="e.g. 0400 000 000"
                   class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
                 /><span class="field-error"
-                  >Please enter a valid Australian phone number.</span
+                  >Please enter a valid phone number (8+ digits; spaces optional).</span
                 ></label
               >
               <label class="grid gap-2"
@@ -1177,7 +1177,7 @@
     <script>
       // ponytail: no backend yet; validates then shows a thank-you. Point action/fetch at the real endpoint.
       const f = document.getElementById("ot-form");
-      f.addEventListener("submit", (e) => {
+      f.addEventListener("submit", async (e) => {
         e.preventDefault();
         f.querySelectorAll("input:not([type=radio]), textarea").forEach(
           (x) => (x.value = x.value.trim()),
@@ -1187,6 +1187,7 @@
           f.querySelector(":invalid").focus();
           return;
         }
+        if (!(await sendForm(f))) return;
         f.reset();
         f.classList.remove("was-validated");
         document.getElementById("ot-thanks").classList.remove("hidden");
@@ -1238,5 +1239,6 @@
         });
       })();
     </script>
+    <script src="assets/forms.js"></script>
   </body>
 </html>
