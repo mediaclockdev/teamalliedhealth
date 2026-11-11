@@ -37,9 +37,9 @@ module.exports = async (req, res) => {
   const text =
     `${service} enquiry\n\n` + rows.map(([l, v]) => `${l}: ${v}`).join("\n") + (message ? `\n\nMessage:\n${message}` : "") + "\n";
 
-  const name_ = `<span style="font-size:20px;font-weight:700;color:#fff;letter-spacing:.2px">Team Allied Health</span>`;
+  const name_ = `<span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:.2px">Team Allied Health</span>`;
   const logo = process.env.SITE_URL
-    ? `<table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="padding-right:14px;vertical-align:middle"><img src="${esc(process.env.SITE_URL.replace(/\/$/, ""))}/assets/logo.png" alt="" width="56" height="56" style="display:block;border:0;width:56px;height:56px;border-radius:50%"></td><td style="vertical-align:middle">${name_}</td></tr></table>`
+    ? `<table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="padding-right:14px;vertical-align:middle"><img src="${esc(process.env.SITE_URL.replace(/\/$/, ""))}/assets/logo-email.png" alt="" width="88" height="88" style="display:block;border:3px solid #fff;width:82px;height:82px;border-radius:50%"></td><td style="vertical-align:middle">${name_}</td></tr></table>`
     : name_;
   const html = `<!doctype html><html><body style="margin:0;padding:24px 12px;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#0f172a">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden">
