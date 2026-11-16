@@ -942,15 +942,14 @@
                 ><input
                   name="phone"
                   type="tel"
-                  inputmode="tel"
+                  inputmode="numeric"
                   required
                   autocomplete="tel"
-                  pattern="[0-9+()\s\-]{8,20}"
-                  placeholder="e.g. 0400 000 000"
+                  pattern="[0-9]{4} [0-9]{3} [0-9]{3}" maxlength="12"
+                  placeholder="0400 000 000"
                   class="h-[54px] w-full px-4 rounded-[14px] bg-[#f8fafc] border-[1.125px] border-[#d9e2dc] placeholder:text-[#94a3b8] outline-none focus:border-[#10b981] focus:ring-4 focus:ring-[#d1fae5] transition"
                 /><span class="field-error"
-                  >Please enter a valid phone number (8+ digits; spaces
-                  optional).</span
+                  >Please enter a valid phone number (numbers only, 10 digits, e.g. 0412 345 678).</span
                 ></label
               >
               <label class="grid gap-2"

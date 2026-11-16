@@ -12,6 +12,21 @@ document.querySelectorAll("form").forEach((f) => {
   if (b) b.autocomplete = "off";
 });
 
+// Phone fields: numbers only, max 10 digits, auto-formatted as 0000 000 000.
+document.querySelectorAll('input[name="phone"]').forEach((i) => {
+  i.addEventListener("input", () => {
+    const d = i.value.replace(/\D/g, "").slice(0, 10);
+    i.value = [d.slice(0, 4), d.slice(4, 7), d.slice(7, 10)].filter(Boolean).join(" ");
+  });
+});
+
+// Date fields: open the calendar picker when the field is clicked or focused by keyboard.
+document.querySelectorAll('input[type="date"]').forEach((i) => {
+  const open = () => { try { i.showPicker(); } catch (_) {} };
+  i.addEventListener("click", open);
+  i.addEventListener("focus", open);
+});
+
 async function sendForm(f) {
   if (f.dataset.sending) return false; // already in flight: ignore repeat clicks / Enter
   f.dataset.sending = "1";
@@ -28,7 +43,7 @@ async function sendForm(f) {
     btn.style.cursor = "not-allowed";
   }
   try {
-    const r = await fetch("/api/send", {
+    const r = await fetch("send.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

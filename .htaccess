@@ -1,0 +1,4 @@
+# Never serve config files
+<FilesMatch "^(mail-config.*\.php)$">
+  Require all denied
+</FilesMatch>
