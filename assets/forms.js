@@ -4,7 +4,10 @@
 // Named "_hp" so browser autofill never fills it for real people.
 document.querySelectorAll("form").forEach((f) => {
   const h = document.createElement("input");
-  h.name = "_hp"; h.tabIndex = -1; h.autocomplete = "off"; h.setAttribute("aria-hidden", "true");
+  h.name = "_hp";
+  h.tabIndex = -1;
+  h.autocomplete = "off";
+  h.setAttribute("aria-hidden", "true");
   h.style.cssText = "position:absolute;left:-9999px";
   f.appendChild(h);
   // Firefox restores a button's disabled state on reload; this stops a stuck "disabled" button.
@@ -16,15 +19,75 @@ document.querySelectorAll("form").forEach((f) => {
 document.querySelectorAll('input[name="phone"]').forEach((i) => {
   i.addEventListener("input", () => {
     const d = i.value.replace(/\D/g, "").slice(0, 10);
-    i.value = [d.slice(0, 4), d.slice(4, 7), d.slice(7, 10)].filter(Boolean).join(" ");
+    i.value = [d.slice(0, 4), d.slice(4, 7), d.slice(7, 10)]
+      .filter(Boolean)
+      .join(" ");
   });
 });
 
 // Date fields: open the calendar picker when the field is clicked or focused by keyboard.
 document.querySelectorAll('input[type="date"]').forEach((i) => {
-  const open = () => { try { i.showPicker(); } catch (_) {} };
+  const open = () => {
+    try {
+      i.showPicker();
+    } catch (_) {}
+  };
   i.addEventListener("click", open);
   i.addEventListener("focus", open);
+});
+
+// Name fields (full name, parent/guardian/caregiver): letters, spaces, ' - . only; at least 2 letters.
+document
+  .querySelectorAll(
+    'input[name="name"],input[name="parent"],input[name="guardian"]',
+  )
+  .forEach((i) => {
+    const check = () => {
+      i.value = i.value
+        .replace(/[^\p{L}\s'’.\-]/gu, "")
+        .replace(/\s{2,}/g, " ");
+      i.setCustomValidity(
+        i.value.trim() && (i.value.match(/\p{L}/gu) || []).length < 2
+          ? "Please enter a valid name (letters only)."
+          : "",
+      );
+    };
+    i.addEventListener("input", check);
+    i.addEventListener("blur", check);
+  });
+
+// Age / DOB free-text field: an age (e.g. "3", "6 years old") or a real past date (e.g. 14/05/2018, 12 Jan 2022).
+document.querySelectorAll('input[name="age"]').forEach((i) => {
+  const check = () => {
+    const v = i.value.trim();
+    let ok = !v;
+    if (v) {
+      const age = v.match(/^(\d{1,3})(\s*(years?|yrs?|y\/?o|years?\s*old))?$/i);
+      const dmy = v.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/);
+      const d = dmy
+        ? new Date(+dmy[3], dmy[2] - 1, +dmy[1])
+        : /\d{4}/.test(v) && /[a-z]/i.test(v)
+          ? new Date(v)
+          : null;
+      if (age) ok = +age[1] >= 0 && +age[1] <= 120;
+      else if (d && !isNaN(d))
+        ok =
+          d <= new Date() &&
+          d.getFullYear() >= 1900 &&
+          (!dmy || (d.getDate() === +dmy[1] && d.getMonth() === dmy[2] - 1));
+    }
+    i.setCustomValidity(
+      ok ? "" : "Enter an age (e.g. 6 years) or a valid past date of birth.",
+    );
+  };
+  i.addEventListener("input", check);
+  i.addEventListener("blur", check);
+});
+
+// Date of birth pickers: no future dates, nothing before 1900.
+document.querySelectorAll('input[type="date"]').forEach((i) => {
+  i.max = new Date().toISOString().slice(0, 10);
+  i.min = i.min || "1900-01-01";
 });
 
 async function sendForm(f) {
@@ -59,6 +122,8 @@ async function sendForm(f) {
       btn.style.opacity = btn.style.cursor = "";
     }
   }
-  alert("Sorry, we couldn't send your message. Please call 0429 621 506 or try again.");
+  alert(
+    "Sorry, we couldn't send your message. Please call 0429 621 506 or try again.",
+  );
   return false;
 }
