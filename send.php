@@ -48,12 +48,12 @@ $keys = array_merge($top, array_filter(array_keys($b), fn($k) => !in_array($k, $
 $rows = [];
 foreach ($keys as $k) {
   if (!array_key_exists($k, $b) || $skip($k, $b[$k])) continue;
-  $rows[] = [$LABELS[$k] ?? $k, $val($b[$k])];
+  $rows[] = [$LABELS[$k] ?? $k, $val($b[$k]), $k];
 }
 $message = (isset($b['message']) && !$skip('message', $b['message'])) ? $val($b['message']) : '';
 
 $text = "$service enquiry\n\n";
-foreach ($rows as [$l, $v]) $text .= "$l: $v\n";
+foreach ($rows as [$l, $v, $_]) $text .= "$l: $v\n";
 if ($message !== '') $text .= "\nMessage:\n$message\n";
 
 $nameCell = '<span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:.2px">Team Allied Health</span>';
@@ -62,20 +62,36 @@ $logo = $site
   ? '<table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="padding-right:14px;vertical-align:middle"><img src="' . esc($site) . '/assets/logo-email.png" alt="" width="88" height="88" style="display:block;border:3px solid #fff;width:82px;height:82px;border-radius:50%"></td><td style="vertical-align:middle">' . $nameCell . '</td></tr></table>'
   : $nameCell;
 
-$tr = '';
-foreach ($rows as [$l, $v]) {
-  $tr .= '<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;width:38%;font-weight:700;color:#475569;vertical-align:top">' . esc($l)
-       . '</td><td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;vertical-align:top">' . esc($v) . '</td></tr>';
+$ICONS = ['name' => '👤', 'email' => '✉️', 'phone' => '📞', 'dob' => '📅', 'address' => '📍', 'funding' => '💳', 'therapy' => '💚', 'location' => '📌', 'consent' => '✅', 'for' => '🙋', 'focus' => '🎯', 'delivery' => '🏠', 'topic' => '💡', 'parent' => '👪', 'guardian' => '👪', 'age' => '🎂'];
+$card = fn($l, $v, $k) => '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f4;border-radius:8px"><tr>'
+  . '<td width="36" style="padding:12px 0 12px 12px;font-size:18px;vertical-align:middle">' . ($ICONS[$k] ?? '📝') . '</td>'
+  . '<td style="padding:10px 12px;vertical-align:middle"><div style="font-size:12px;color:#475569">' . esc($l) . '</div>'
+  . '<div style="font-size:15px;font-weight:700;color:#0f172a;word-break:break-word">' . ($k === 'email' ? '<a href="mailto:' . esc($v) . '" style="color:#047857">' . esc($v) . '</a>' : esc($v)) . '</div></td></tr></table>';
+
+$grid = '';
+$pend = null; // card waiting for a partner in the 2-column grid
+$cell = fn($c, $pad) => '<td width="50%" valign="top" style="padding:' . $pad . '">' . $c . '</td>';
+foreach ($rows as [$l, $v, $k]) {
+  if ($k === 'address') { // long values get a full-width row
+    if ($pend !== null) { $grid .= '<tr><td colspan="2" style="padding:0 0 8px">' . $pend . '</td></tr>'; $pend = null; }
+    $grid .= '<tr><td colspan="2" style="padding:0 0 8px">' . $card($l, $v, $k) . '</td></tr>';
+  } elseif ($pend === null) $pend = $card($l, $v, $k);
+  else { $grid .= '<tr>' . $cell($pend, '0 4px 8px 0') . $cell($card($l, $v, $k), '0 0 8px 4px') . '</tr>'; $pend = null; }
 }
+if ($pend !== null) $grid .= '<tr><td colspan="2" style="padding:0 0 8px">' . $pend . '</td></tr>';
+
 $msgBlock = $message === '' ? '' :
-  '<div style="margin-top:16px;padding:14px 16px;background:#f0fdf4;border-left:4px solid #047857;border-radius:6px"><div style="font-weight:700;color:#475569;margin-bottom:6px">Message</div><div style="white-space:pre-wrap">' . esc($message) . '</div></div>';
+  '<div style="margin-top:12px;font-size:17px;font-weight:700;color:#004719">💬 Message</div>'
+  . '<div style="margin-top:8px;padding:14px 16px;background:#e8f6ec;border-left:4px solid #2e9e4f;border-radius:6px;white-space:pre-wrap">' . esc($message) . '</div>';
 
 $html = '<!doctype html><html><body style="margin:0;padding:24px 12px;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#0f172a">'
-  . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden">'
-  . '<tr><td style="background:#004719;padding:20px 24px">' . $logo . '</td></tr>'
-  . '<tr><td style="padding:24px 24px 8px"><h2 style="margin:0;font-size:20px;color:#004719">New ' . esc($service) . ' enquiry</h2></td></tr>'
-  . '<tr><td style="padding:8px 24px 24px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">' . $tr . '</table>' . $msgBlock . '</td></tr>'
-  . '<tr><td style="padding:14px 24px;background:#f8fafc;font-size:12px;color:#64748b">Sent from the website form. Reply to this email to respond to the enquirer.</td></tr>'
+  . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden">'
+  . '<tr><td style="background:#0b5a2b;padding:22px 24px">' . $logo . '</td></tr>'
+  . '<tr><td style="padding:20px 24px 8px"><div style="padding:14px 16px;background:#e8f6ec;border-radius:8px"><div style="font-size:19px;font-weight:700;color:#004719">New ' . esc($service) . ' Enquiry Received</div>'
+  . '<div style="font-size:14px;color:#334155;margin-top:2px">A new enquiry has been submitted through the website form.</div></div></td></tr>'
+  . '<tr><td style="padding:12px 24px 8px"><div style="font-size:17px;font-weight:700;color:#004719;padding-bottom:6px;margin-bottom:10px;border-bottom:1px solid #cbd5e1">👤 ' . esc($service) . ' Details</div>'
+  . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' . $grid . '</table>' . $msgBlock . '</td></tr>'
+  . '<tr><td style="padding:16px 24px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;text-align:center">Sent from the website form. Please reply to this email to respond to the enquirer.</td></tr>'
   . '</table></body></html>';
 
 try {
