@@ -34,7 +34,7 @@ $LABELS = [
 $SERVICES = [
   'index' => 'Referral', 'contact' => 'Contact', 'early-intervention' => 'Early Intervention',
   'occupational-therapy' => 'Occupational Therapy', 'physiotherapy' => 'Physiotherapy', 'speech-therapy' => 'Speech Therapy',
-  'psychology' => 'Psychology', 'positive-behaviour-support' => 'Behaviour Support',
+  'psychology' => 'Psychology', 'behaviour-therapy' => 'Behaviour Therapy',
 ];
 
 $page = preg_replace('/\.html$/', '', (string)($b['_page'] ?? ''));
