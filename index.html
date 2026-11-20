@@ -2979,5 +2979,12 @@
       );
     </script>
     <script src="assets/forms.js"></script>
+    <script>
+      // Tailwind CDN styles the page after the browser has already jumped to
+      // the #hash in the unstyled layout, so re-scroll once everything is laid out.
+      window.addEventListener("load", () => {
+        if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+      });
+    </script>
   </body>
 </html>
